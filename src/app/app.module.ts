@@ -7,10 +7,12 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
