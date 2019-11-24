@@ -7,12 +7,20 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { LoginComponent } from './administration/login/login.component';
+import { ViewRegistrationsComponent } from './administration/view-registrations/view-registrations.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistrationFormComponent,
+    LoginComponent,
+    ViewRegistrationsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
