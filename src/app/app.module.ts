@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { LoginComponent } from './administration/login/login.component';
 import { ViewRegistrationsComponent } from './administration/view-registrations/view-registrations.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ViewRegistrationsComponent } from './administration/view-registrations/
     ViewRegistrationsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
