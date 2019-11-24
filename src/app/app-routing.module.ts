@@ -1,3 +1,4 @@
+import { IsLoggedGuard } from './../guards/is-logged.guard';
 import { ViewRegistrationsComponent } from './administration/view-registrations/view-registrations.component';
 import { LoginComponent } from './administration/login/login.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {
     path:"administration/**",
-    component: ViewRegistrationsComponent
+    component: ViewRegistrationsComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path:"**",
