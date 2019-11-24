@@ -4,7 +4,8 @@ import { API_ADDRESS } from './../proxy';
 import { Injectable } from '@angular/core';
 import { sha256 } from 'js-sha256';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { map, catchError } from 'rxjs/operators'
+import { of } from 'rxjs';
 
 interface LoginResponse{
   message?: string;
@@ -29,6 +30,9 @@ interface LoginResponse{
           }
           this.auth.auth = response as AuthInfo;
           return LoginState.LOGIN_OK
+        }),
+        catchError(error => {
+          return of(error.error.message === "NOT_FOUND"? LoginState.BAD_USERNAME: error.error.message);
         })
       )
   }

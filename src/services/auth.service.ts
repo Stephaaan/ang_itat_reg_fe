@@ -6,12 +6,21 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor() { }
-
+  constructor() {
+    //localStorage.setItem("logged", JSON.stringify(false));
+   }
+  get logged(){
+    return JSON.parse(localStorage.getItem("logged"))
+  }
   set auth(auth:AuthInfo){
     localStorage.setItem("auth", JSON.stringify(auth));
+    localStorage.setItem("logged", JSON.stringify(true));
   }
   get auth():AuthInfo{
-    return JSON.parse(localStorage.getItem("auth")) as AuthInfo;
+    if(this.logged){
+      return JSON.parse(localStorage.getItem("auth")) as AuthInfo;
+    }else{
+      return {token:'', id: ''};
+    }
   }
 }

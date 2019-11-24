@@ -11,6 +11,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { LoginComponent } from './administration/login/login.component';
 import { ViewRegistrationsComponent } from './administration/view-registrations/view-registrations.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],
