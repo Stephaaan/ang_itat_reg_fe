@@ -1,1 +1,93 @@
 <p>registration-form works!</p>
+<!-- no it does not -->
+<form>
+    <!-- example 
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input required minlenght="3" maxlenght="20" ngModel name="firstName" #firstName="ngModel" 
+        pattern="nigga" (change)="log(firstName)" 
+        id="firstName" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First Name is required.</div>
+        <div *ngIf="firstName.errors.required">First Name is required.</div>
+        <div *ngIf="firstName.errors.minlenght">First name should be a nimimum {{ firstName.errors.minlenght.requiredLength }} characters.</div>
+        <div *ngIf="firstName.errors.maxlenght">First name should be a maximum 20 characters.</div>
+        <div *ngIf="firstName.errors.pattern">First name doesn't match the pattern.</div>
+    </div>
+    example -->
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input required type="text" minlenght="2" formControlName="name" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">This is a required question</div>
+            <div *ngIf="f.name.errors.minlenght">Name should have a nimimum {{ f.name.errors.minlenght.requiredLength }} characters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="surname">Surname</label>
+        <input required type="text" minlenght="2" formControlName="surname" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />
+        <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+            <div *ngIf="f.surname.errors.required">This is a required question</div>
+            <div *ngIf="f.surname.errors.minlenght">Surname should have a nimimum {{ f.surname.errors.minlenght.requiredLength }} characters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mail">Email</label>
+        <input required type="text" minlenght="2" formControlName="mail" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.mail.errors }" />
+        <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
+            <div *ngIf="f.mail.errors.required">This is a required question</div>
+            <div *ngIf="f.mail.errors.minlenght">Email should have a nimimum {{ f.mail.errors.minlenght.requiredLength }} characters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input required type="text" minlenght="3" formControlName="address" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">This is a required question</div>
+            <div *ngIf="f.address.errors.minlenght">Adress should have a nimimum {{ f.address.errors.minlenght.requiredLength }} characters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="regNumber">Company registration number</label>
+        <input required type="text" minlenght="8" formControlName="regNumber" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.regNumber.errors }" />
+        <div *ngIf="submitted && f.regNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.regNumber.errors.required">This is a required question</div>
+            <div *ngIf="f.regNumber.errors.minlenght">Registration Number should have a nimimum {{ f.regNumber.errors.minlenght.requiredLength }} characters.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ideNumber">VAT identification number</label>
+        <input required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.ideNumber.errors }" />
+        <div *ngIf="submitted && f.ideNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.ideNumber.errors.required">This is a required question</div>
+            <div *ngIf="f.ideNumber.errors.minlenght">Identification Number should have a nimimum {{ f.ideNumber.errors.minlenght.requiredLength }} characters.</div>
+        </div>
+    </div>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">We offer two registration variants: A = full conference, 
+            B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) *
+          <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+        </label>
+      </div>
+      
+        <button>submit</button>
+      </form>
+
+
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary">SEND</button>
+</form>
