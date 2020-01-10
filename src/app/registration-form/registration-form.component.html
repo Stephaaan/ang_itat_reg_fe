@@ -1,5 +1,6 @@
 <p>registration-form works!</p>
 <!-- no it does not -->
+<!-- is qiute shite -->
 <form>
     <!-- example 
     <div class="form-group">
@@ -14,6 +15,7 @@
         <div *ngIf="firstName.errors.pattern">First name doesn't match the pattern.</div>
     </div>
     example -->
+
     <div class="form-group">
         <label for="name">Name</label>
         <input required type="text" minlenght="2" formControlName="name" class="form-control"
@@ -23,6 +25,7 @@
             <div *ngIf="f.name.errors.minlenght">Name should have a nimimum {{ f.name.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="surname">Surname</label>
         <input required type="text" minlenght="2" formControlName="surname" class="form-control"
@@ -32,6 +35,7 @@
             <div *ngIf="f.surname.errors.minlenght">Surname should have a nimimum {{ f.surname.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="mail">Email</label>
         <input required type="text" minlenght="2" formControlName="mail" class="form-control"
@@ -41,6 +45,7 @@
             <div *ngIf="f.mail.errors.minlenght">Email should have a nimimum {{ f.mail.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="address">Address</label>
         <input required type="text" minlenght="3" formControlName="address" class="form-control"
@@ -50,6 +55,7 @@
             <div *ngIf="f.address.errors.minlenght">Adress should have a nimimum {{ f.address.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="regNumber">Company registration number</label>
         <input required type="text" minlenght="8" formControlName="regNumber" class="form-control"
@@ -59,6 +65,7 @@
             <div *ngIf="f.regNumber.errors.minlenght">Registration Number should have a nimimum {{ f.regNumber.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="ideNumber">VAT identification number</label>
         <input required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
@@ -68,11 +75,14 @@
             <div *ngIf="f.ideNumber.errors.minlenght">Identification Number should have a nimimum {{ f.ideNumber.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
+
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active">We offer two registration variants: A = full conference, 
             B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) *
-            <!-- -> Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days. -->
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> Full conference - Full registration: 360 €
+            <p>
+            -> Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
+            </p>
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Full conference - Full registration: 360 €
            (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
         </label>
         <label class="btn btn-secondary">
@@ -130,6 +140,7 @@
              (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
           </label>
       </div>
+
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active">Payment method *
           <input type="radio" name="options" id="option1" autocomplete="off"> cash (upon registration)
@@ -142,13 +153,54 @@
         </label>
       </div>
       
-      <!--
-          Time of arrival *
-      -->
+    <!-- Change parameters to current values -->
 
-      <!--
-          Time of departure *
-      -->
+      <div class="input-group mb-10">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Time of arrival *</label>
+                <p> 
+                    Food related question. Workshops start with dinner and end with breakfast. 
+                    If you choose an earlier arrival or a later departure, the additional food will be priced.
+                </p>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="1">20.9. (Friday) - start with dinner</option>
+              <option value="2">21.9. (Saturday) - start with breakfast</option>
+              <option value="3">21.9. (Saturday) - start with lunch</option>
+              <option value="4">21.9. (Saturday) - start with dinner</option>
+              <option value="5">22.9. (Sunday) - start with breakfast</option>
+              <option value="6">22.9. (Sunday) - start with lunch</option>
+              <option value="7">22.9. (Sunday) - start with dinner</option>
+              <option value="8">23.9. (Monday) - start with breakfast</option>
+              <option value="9">23.9. (Monday) - start with lunch</option>
+              <option value="10">23.9. (Monday) - start with dinner</option>
+            </select>
+          </div>
+          
+      <!-- Change parameters to current values -->
+
+      <div class="input-group mb-10">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Time of departure *</label>
+                <p>
+                    Food related question.
+                </p>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="1">21.9. (Saturday) - end with breakfast</option>
+              <option value="2">21.9. (Saturday) - end with lunch</option>
+              <option value="3">21.9. (Saturday) - end with dinner</option>
+              <option value="4">22.9. (Sunday) - end with breakfast</option>
+              <option value="5">22.9. (Sunday) - end with lunch</option>
+              <option value="6">22.9. (Sunday) - end with dinner</option>
+              <option value="7">23.9. (Monday) - end with breakfast</option>
+              <option value="8">23.9. (Monday) - end with lunch</option>
+              <option value="9">23.9. (Monday) - end with dinner</option>
+              <option value="10">24.9. (Tuesday) - end with breakfast</option>
+            </select>
+          </div>
 
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active">T-shirt size *
@@ -181,8 +233,10 @@
 
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active">Accommodation for your companion? *
-            <!-- Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details. -->
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> yes, for 1 night [+50€] 
+            <p>
+            Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
+            </p>
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> yes, for 1 night [+50€] 
           (lunch, dinner and breakfast for the next day)
         </label>
         <label class="btn btn-secondary">
@@ -202,7 +256,9 @@
 
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary active">Banket for your companion? *
-            <!-- Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019 -->
+            <p>
+            Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
+            </p>
           <input type="radio" name="options" id="option1" autocomplete="off" checked> yes [+15€]
         </label>
         <label class="btn btn-secondary">
@@ -210,6 +266,61 @@
         </label>
       </div>
 
+      <div class="form-group">
+        <label for="shirt">Would you like to buy another T-shirt ?</label>
+        <p>
+            Please enter the number of T-shirts [+5€ each]. If needed state the T-shirt sizes and counts. 
+            Additional T-shirts are payed for at registration in cash.
+        </p>
+        <input required type="text" minlenght="2" formControlName="shirt" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
+        <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
+        </div>
+      </div>
+
+      <!--
+          Special requests
+      -->
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">Do you have special requests regarding the food? *
+              <input type="radio" name="options" id="option1" autocomplete="off"> no
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> vegetarian diet
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> vegan diet
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> gluten-free diet
+            </label>
+            <!-- this option is completely fucked-->
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Other:
+              <input required type="text" minlenght="2" formControlName="shirt" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
+            <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
+        </div>
+            </label>
+          </div>
+
+      <div class="form-group">
+            <label for="notes">Room for your notes.</label>
+            <input required type="text" minlenght="2" formControlName="notes" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.notes.errors }" />
+            <div *ngIf="submitted && f.notes.errors" class="invalid-feedback">
+            </div>
+          </div>
+        
+    <div>
+        <p>
+            You will recieve a confirmation email after submitting the registration form. 
+            This email contains some registration details. 
+            In case of any problems regarding this email, please contact us at  lubomir.antoni@upjs.sk
+        </p>
+        </div>
+        
         <button>submit</button>
       </form>
 
