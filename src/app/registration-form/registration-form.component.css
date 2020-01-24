@@ -1,16 +1,36 @@
 
 
-body { padding: 20px; }
+body { 
+    padding: 20px; 
+}
 
 .form-control.ng-touched.ng-invalid {
     border: 2px solid red;
+    background: #EAEAEA;
 }
 
 .frm {
     padding: 20px;
     width: 50%;
     margin: auto;
+    background: #E5E5E5;
 }
+
+.midsection {
+    padding: 20px;
+    top: 20px;
+
+background: #C4C4C4;
+}
+
+.form_group {
+    background: #FFFFFF;
+    border: 1px solid #BEBEBE;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 @media screen and (max-width: 1000px){
     .frm{
         width: 80%;
