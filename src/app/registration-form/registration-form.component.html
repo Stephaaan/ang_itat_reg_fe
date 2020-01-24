@@ -1,7 +1,7 @@
 <p>registration-form works!</p>
 <!-- no it does not -->
 <!-- is qiute shite -->
-<form>
+<form class="frm">
     <!-- example 
     <div class="form-group">
         <label for="firstName">First Name</label>
@@ -17,7 +17,7 @@
     example -->
 
     <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name" class="font-heading">Name:</label>
         <input required type="text" minlenght="2" formControlName="name" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group">
-        <label for="surname">Surname</label>
+        <label for="surname" class="font-heading">Surname:</label>
         <input required type="text" minlenght="2" formControlName="surname" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />
         <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
@@ -37,8 +37,8 @@
     </div>
 
     <div class="form-group">
-        <label for="mail">Email</label>
-        <input required type="text" minlenght="2" formControlName="mail" class="form-control"
+        <label for="mail" class="font-heading">Email:</label>
+        <input required type="email" minlenght="2" formControlName="mail" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.mail.errors }" />
         <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
             <div *ngIf="f.mail.errors.required">This is a required question</div>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="form-group">
-        <label for="address">Address</label>
+        <label for="address" class="font-heading">Address:</label>
         <input required type="text" minlenght="3" formControlName="address" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
         <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-group">
-        <label for="regNumber">Company registration number</label>
+        <label for="regNumber" class="font-heading">Company registration number:</label>
         <input required type="text" minlenght="8" formControlName="regNumber" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.regNumber.errors }" />
         <div *ngIf="submitted && f.regNumber.errors" class="invalid-feedback">
@@ -67,7 +67,7 @@
     </div>
 
     <div class="form-group">
-        <label for="ideNumber">VAT identification number</label>
+        <label for="ideNumber" class="font-heading">VAT identification number:</label>
         <input required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.ideNumber.errors }" />
         <div *ngIf="submitted && f.ideNumber.errors" class="invalid-feedback">
@@ -76,88 +76,139 @@
         </div>
     </div>
 
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">We offer two registration variants: A = full conference, 
-            B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) *
-            <p>
-            -> Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
-            </p>
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Full conference - Full registration: 360 €
+<fieldset class="form-group">
+    <p class="font-heading">We offer two registration variants: A = full conference, 
+      B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) *</p>
+      <p>
+          -> Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
+      </p>
+      <div class="row">
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+        <label class="form-check-label" for="gridRadios1">
+          Full conference - Full registration: 360 €
            (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
         </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> Full conference - Student registration: 305 €
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Full conference - Student registration: 305 €
            (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
         </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option3" autocomplete="off"> Full conference - Student registration
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+        <label class="form-check-label" for="gridRadios3">
+          Full conference - Student registration
            - student presenting paper: 235 €
            (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
         </label>
-        <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Computational Intelligence and Data Mining (4 days)
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Computational Intelligence and Data Mining (4 days)
              - Full registration: 360 €
              (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Computational Intelligence and Data Mining (4 days)
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Computational Intelligence and Data Mining (4 days)
              - Student registation: 305 €
              (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Computational Intelligence and Data Mining (4 days)
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Computational Intelligence and Data Mining (4 days)
              - Student registation - student presenting paper: 235 €
              (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> CZ-SK NLP workshop
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          CZ-SK NLP workshop
              - Full registration 250€ 
              (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> CZ-SK NLP workshop
-             - Student registration 200€ 
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          CZ-SK NLP workshop - Student registration 200€ 
              (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> CZ-SK NLP workshop - Student registration
-             - student presenting paper 130€ 
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          CZ-SK NLP workshop - Student registration - student presenting paper 130€ 
              (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Intelligent speech and audio technologies workshop
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Intelligent speech and audio technologies workshop
              - Full registration: 250€ 
              (fee + digital almanac + coffee breaks + banket + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Intelligent speech and audio technologies workshop
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Intelligent speech and audio technologies workshop
              - Student registration 200€
               (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
-          </label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> Intelligent speech and audio technologies workshop - Student registration
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+        <label class="form-check-label" for="gridRadios2">
+          Intelligent speech and audio technologies workshop - Student registration
              - student presenting paper 130€ 
              (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
-          </label>
+        </label>
       </div>
 
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">Payment method *
-          <input type="radio" name="options" id="option1" autocomplete="off"> cash (upon registration)
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> Bank transfer (bank account: 2628717743/1100 
-          (Tatra banka, a.s. Hodžovo namestie 3, 811 06 Bratislava), IBAN SK50 1100 0000 0026 2871 7743, SWIFT: TATR SK BX 
-          (Slovenská spoločnosť pre umelú inteligenciu (SAIS), Letná 9, 040 00 Košice). 
-          Please, after the bank transfer, send us the confirmation of payment to peter.gursky@upjs.sk.
-        </label>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset class="form-group">
+<legend class="font-heading">Payment method: *</legend>
+    <div class="row">
+  <div class="col-sm-10">
+    <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            cash (upon registration)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+              Bank transfer (bank account: 2628717743/1100 
+              (Tatra banka, a.s. Hodžovo namestie 3, 811 06 Bratislava), IBAN SK50 1100 0000 0026 2871 7743, SWIFT: TATR SK BX 
+              (Slovenská spoločnosť pre umelú inteligenciu (SAIS), Letná 9, 040 00 Košice). 
+              Please, after the bank transfer, send us the confirmation of payment to peter.gursky@upjs.sk.
+          </label>
+        </div>
       </div>
+    </div>
+  </fieldset>
       
     <!-- Change parameters to current values -->
 
-      <div class="input-group mb-10">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Time of arrival *</label>
+      <div class="form-group">
+            <div class="input-group">
+              <label class="font-heading" for="inputGroupSelect01">Time of arrival *</label>
                 <p> 
                     Food related question. Workshops start with dinner and end with breakfast. 
                     If you choose an earlier arrival or a later departure, the additional food will be priced.
@@ -180,9 +231,9 @@
           
       <!-- Change parameters to current values -->
 
-      <div class="input-group mb-10">
+      <div class="form-group">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Time of departure *</label>
+              <label class="font-heading" for="inputGroupSelect01">Time of departure *</label>
                 <p>
                     Food related question.
                 </p>
@@ -202,72 +253,126 @@
             </select>
           </div>
 
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">T-shirt size *
-          <input type="radio" name="options" id="option1" autocomplete="off"> S
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> M
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> L
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> XL
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> XXL
-        </label>
-      </div>
-
+<fieldset class="form-group">
+    <legend class="font-heading">T-shirt size *</legend>
+        <div class="row">
+      <div class="col-sm-10">
+        <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                C
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  M
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  L
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  XL
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  XXL
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
       <!--
           Extra payments
       -->
+      <fieldset class="form-group">
+          <legend class="font-heading">Extra payments</legend>
+              <div class="row">
+            <div class="col-sm-10">
+              <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        single bed rooms +70 eur, only for full registration
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
 
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">Extra payments
-          <input type="radio" name="options" id="option1" autocomplete="off"> single bed rooms +70 eur, 
-          only for full registration
-        </label>
-      </div>
+            <fieldset class="form-group">
+                <legend class="font-heading">Accommodation for your companion? *</legend>
+                <p>
+                    Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
+                    </p>
+                    <div class="row">
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                              yes, for 1 night [+50€] (lunch, dinner and breakfast for the next day)
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                              yes, for 2 nights [+45€/night]
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                              yes, for 3 nights [+45€/night]
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                              yes, for 4 nights [+195€] (during the whole conference)
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                              no
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
 
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">Accommodation for your companion? *
-            <p>
-            Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
-            </p>
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> yes, for 1 night [+50€] 
-          (lunch, dinner and breakfast for the next day)
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> yes, for 2 nights [+45€/night]
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> yes, for 3 nights [+45€/night]
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> yes, for 4 nights [+195€] 
-          (during the whole conference)
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> no
-        </label>
-      </div>
-
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active">Banket for your companion? *
-            <p>
-            Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
-            </p>
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> yes [+15€]
-        </label>
-        <label class="btn btn-secondary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> no
-        </label>
-      </div>
+                  <fieldset class="form-group">
+                      <legend class="font-heading">Banket for your companion? *</legend>
+                      <p>
+                          Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
+                          </p>
+                          <div class="row">
+                        <div class="col-sm-10">
+                          <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    yes [+15€]
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                <label class="form-check-label" for="gridRadios2">
+                                    no
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
 
       <div class="form-group">
-        <label for="shirt">Would you like to buy another T-shirt ?</label>
+        <label for="shirt" class="font-heading">Would you like to buy another T-shirt ?</label>
         <p>
             Please enter the number of T-shirts [+5€ each]. If needed state the T-shirt sizes and counts. 
             Additional T-shirts are payed for at registration in cash.
@@ -281,32 +386,50 @@
       <!--
           Special requests
       -->
-
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">Do you have special requests regarding the food? *
-              <input type="radio" name="options" id="option1" autocomplete="off"> no
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> vegetarian diet
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> vegan diet
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> gluten-free diet
-            </label>
-            <!-- this option is completely fucked-->
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Other:
-              <input required type="text" minlenght="2" formControlName="shirt" class="form-control"
+<fieldset class="form-group">
+    <legend class="font-heading">Do you have special requests regarding the food? *</legend>
+        <div class="row">
+      <div class="col-sm-10">
+        <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                no
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  vegetarian diet
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  vegan diet
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  gluten-free diet
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                  Other:
+                  <input required type="text" minlenght="2" formControlName="shirt" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
             <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
         </div>
-            </label>
+              </label>
+            </div>
           </div>
+        </div>
+      </fieldset>
 
       <div class="form-group">
-            <label for="notes">Room for your notes.</label>
+            <label for="notes" class="font-heading">Room for your notes.</label>
             <input required type="text" minlenght="2" formControlName="notes" class="form-control"
              [ngClass]="{ 'is-invalid': submitted && f.notes.errors }" />
             <div *ngIf="submitted && f.notes.errors" class="invalid-feedback">
@@ -324,9 +447,9 @@
         <button>submit</button>
       </form>
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <label for="comment">Comment</label>
         <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-    </div>
+    </div>-->
+    
     <button class="btn btn-primary">SEND</button>
-</form>

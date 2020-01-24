@@ -1,7 +1,18 @@
-@import "∼bootstrap/dist/css/bootstrap.css";
+
 
 body { padding: 20px; }
 
 .form-control.ng-touched.ng-invalid {
     border: 2px solid red;
 }
+
+.frm {
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+}
+@media screen and (max-width: 1000px){
+    .frm{
+        width: 80%;
+    }
+}  

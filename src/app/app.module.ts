@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from "ngx-toastr";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { LoginComponent } from './administration/login/login.component';
-import { ViewRegistrationsComponent } from './administration/view-registrations/view-registrations.component';
-import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { RegistrationFormComponent } from "./registration-form/registration-form.component";
+import { LoginComponent } from "./administration/login/login.component";
+import { ViewRegistrationsComponent } from "./administration/view-registrations/view-registrations.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     ViewRegistrationsComponent
   ],
   imports: [
+    ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -29,4 +30,4 @@ import { FormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
