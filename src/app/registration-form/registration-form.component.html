@@ -19,10 +19,14 @@
 
     <div class="form-group">
         <label for="name" class="section-heading">Registration details</label>
+        <p id="redtext">
+          * Povinné
+        </p>
     </div>
 
     <div class="form-group">
-        <label for="name" class="font-heading">Name: *</label>
+        <label for="name" class="font-heading">Name: <span style="color: red; 
+        font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="2" formControlName="name" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
@@ -32,7 +36,8 @@
     </div>
 
     <div class="form-group">
-        <label for="surname" class="font-heading">Surname: *</label>
+        <label for="surname" class="font-heading">Surname: <span style="color: red; 
+          font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="2" formControlName="surname" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />
         <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
@@ -42,7 +47,8 @@
     </div>
 
     <div class="form-group">
-        <label for="mail" class="font-heading">Email: *</label>
+        <label for="mail" class="font-heading">Email: <span style="color: red; 
+          font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Vaša odpoveď" required type="email" minlenght="2" formControlName="mail" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.mail.errors }" />
         <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
@@ -52,7 +58,8 @@
     </div>
 
     <div class="form-group">
-        <label for="address" class="font-heading">Address: *</label>
+        <label for="address" class="font-heading">Address: <span style="color: red; 
+          font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="3" formControlName="address" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
         <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
@@ -62,7 +69,7 @@
     </div>
 
     <div class="form-group">
-        <label for="regNumber" class="font-heading">Company registration number: *</label>
+        <label for="regNumber" class="font-heading">Company registration number:</label>
         <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="8" formControlName="regNumber" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.regNumber.errors }" />
         <div *ngIf="submitted && f.regNumber.errors" class="invalid-feedback">
@@ -72,7 +79,7 @@
     </div>
 
     <div class="form-group">
-        <label for="ideNumber" class="font-heading">VAT identification number: *</label>
+        <label for="ideNumber" class="font-heading">VAT identification number:</label>
         <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.ideNumber.errors }" />
         <div *ngIf="submitted && f.ideNumber.errors" class="invalid-feedback">
@@ -83,7 +90,8 @@
 
 <fieldset class="form-group">
     <p class="font-heading">We offer two registration variants: A = full conference, 
-      B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) *</p>
+      B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) <span style="color: red; 
+      font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></p>
       <p id="note">
         -> Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
       </p>
@@ -187,7 +195,8 @@
 </fieldset>
 
 <fieldset class="form-group">
-    <legend class="font-heading">Payment method: *</legend>
+    <legend class="font-heading">Payment method: <span style="color: red; 
+      font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
         <div class="row">
       <div class="col-sm-10">
         <div class="form-check">
@@ -213,7 +222,8 @@
 
       <div class="form-group">
             <div class="input-group">
-              <label class="font-heading" for="inputGroupSelect01">Time of arrival *</label>
+              <label class="font-heading" for="inputGroupSelect01">Time of arrival <span style="color: red; 
+                font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
                 <p id="note"> 
                     -> Note: Food related question. Workshops start with dinner and end with breakfast. 
                     If you choose an earlier arrival or a later departure, the additional food will be priced.
@@ -238,7 +248,8 @@
 
       <div class="form-group">
             <div class="input-group">
-              <label class="font-heading" for="inputGroupSelect02">Time of departure *</label>
+              <label class="font-heading" for="inputGroupSelect02">Time of departure <span style="color: red; 
+                font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
                 <p id="note">
                     -> Note: Food related question.
                 </p>
@@ -260,7 +271,8 @@
           </div>
 
           <fieldset class="form-group">
-              <legend class="font-heading">T-shirt size *</legend>
+              <legend class="font-heading">T-shirt size <span style="color: red; 
+                font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
                   <div class="row">
                 <div class="col-sm-10">
                   <div class="form-check">
@@ -320,7 +332,8 @@
             </fieldset>
 
             <fieldset class="form-group">
-                <legend class="font-heading">Accommodation for your companion? *</legend>
+                <legend class="font-heading">Accommodation for your companion? <span style="color: red; 
+                  font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
                 <p id="note">
                     -> Note: Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
                     </p>
@@ -361,7 +374,8 @@
                   </fieldset>
 
                   <fieldset class="form-group">
-                      <legend class="font-heading">Banket for your companion? *</legend>
+                      <legend class="font-heading">Banket for your companion? <span style="color: red; 
+                        font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
                       <p id="note">
                           -> Note: Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
                           </p>
@@ -400,7 +414,8 @@
       </div>
 
       <fieldset class="form-group">
-          <legend class="font-heading">Do you have special requests regarding the food? *</legend>
+          <legend class="font-heading">Do you have special requests regarding the food? <span style="color: red; 
+            font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
               <div class="row">
             <div class="col-sm-10">
               <div class="form-check">
@@ -469,17 +484,22 @@
     <button class="btn btn-primary">SEND</button>
   </div>
 <!--
-  Time of departure is fucked
-  Other food request is fucked
-  text in payment method
-  missing 'section boxes'
-  notes added
-  input type
-  CSS creator should be shot 
-  set task: values(genocide, as soon as posible)
+  to do:
+        Time of departure is fucked
+        Other food request is fucked
+        input type
+        CSS creator should be shot 
+        genocide, as soon as posible
+  done:
+        text in payment method
+        missing 'section boxes'
+        notes
+        add povinne
+        media queries
+        red stars
+              it's my red star, can't let go
+              it's my red star, all i know
+
   previos font: font-size: 1.25rem;
   @import "∼bootstrap/dist/css/bootstrap.css";
-  red stars
-              it's my red star
-              all i know
 -->
