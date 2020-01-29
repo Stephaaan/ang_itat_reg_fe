@@ -6,10 +6,6 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./registration-form.component.css"]
 })
 export class RegistrationFormComponent implements OnInit {
-  log(x) {
-    console.log(x);
-  }
-
   constructor() {}
 
   ngOnInit() {}

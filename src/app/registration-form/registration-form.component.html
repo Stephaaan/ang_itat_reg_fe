@@ -20,14 +20,14 @@
     <div class="form-group">
         <label for="name" class="section-heading">Registration details</label>
         <p id="redtext">
-          * Povinné
+          * Required
         </p>
     </div>
 
     <div class="form-group">
         <label for="name" class="font-heading">Name: <span style="color: red; 
         font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="2" formControlName="name" class="form-control"
+        <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="name" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
             <div *ngIf="f.name.errors.required">This is a required question</div>
@@ -38,7 +38,7 @@
     <div class="form-group">
         <label for="surname" class="font-heading">Surname: <span style="color: red; 
           font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="2" formControlName="surname" class="form-control"
+        <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="surname" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />
         <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
             <div *ngIf="f.surname.errors.required">This is a required question</div>
@@ -49,7 +49,7 @@
     <div class="form-group">
         <label for="mail" class="font-heading">Email: <span style="color: red; 
           font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Vaša odpoveď" required type="email" minlenght="2" formControlName="mail" class="form-control"
+        <input matInput placeholder="Your Answer" required type="email" minlenght="2" formControlName="mail" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.mail.errors }" />
         <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
             <div *ngIf="f.mail.errors.required">This is a required question</div>
@@ -60,7 +60,7 @@
     <div class="form-group">
         <label for="address" class="font-heading">Address: <span style="color: red; 
           font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="3" formControlName="address" class="form-control"
+        <input matInput placeholder="Your Answer" required type="text" minlenght="3" formControlName="address" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
         <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
             <div *ngIf="f.address.errors.required">This is a required question</div>
@@ -70,7 +70,7 @@
 
     <div class="form-group">
         <label for="regNumber" class="font-heading">Company registration number:</label>
-        <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="8" formControlName="regNumber" class="form-control"
+        <input matInput placeholder="Your Answer" required type="text" minlenght="8" formControlName="regNumber" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.regNumber.errors }" />
         <div *ngIf="submitted && f.regNumber.errors" class="invalid-feedback">
             <div *ngIf="f.regNumber.errors.required">This is a required question</div>
@@ -80,7 +80,7 @@
 
     <div class="form-group">
         <label for="ideNumber" class="font-heading">VAT identification number:</label>
-        <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
+        <input matInput placeholder="Your Answer" required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.ideNumber.errors }" />
         <div *ngIf="submitted && f.ideNumber.errors" class="invalid-feedback">
             <div *ngIf="f.ideNumber.errors.required">This is a required question</div>
@@ -93,7 +93,7 @@
       B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) <span style="color: red; 
       font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></p>
       <p id="note">
-        -> Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
+          &rarr; Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
       </p>
       <div class="row">
     <div class="col-sm-10">
@@ -221,16 +221,16 @@
     <!-- Change parameters to current values -->
 
       <div class="form-group">
-            <div class="input-group">
+            <div class="input-group flex-col">
               <label class="font-heading" for="inputGroupSelect01">Time of arrival <span style="color: red; 
                 font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
                 <p id="note"> 
-                    -> Note: Food related question. Workshops start with dinner and end with breakfast. 
+                    &rarr; Note: Food related question. Workshops start with dinner and end with breakfast. 
                     If you choose an earlier arrival or a later departure, the additional food will be priced.
                 </p>
             </div>
             <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Vaša Voľba</option>
+   
               <option value="1">20.9. (Friday) - start with dinner</option>
               <option value="2">21.9. (Saturday) - start with breakfast</option>
               <option value="3">21.9. (Saturday) - start with lunch</option>
@@ -247,16 +247,21 @@
       <!-- Change parameters to current values -->
 
       <div class="form-group">
-            <div class="input-group">
+            <div class="input-group flex-col">
               <label class="font-heading" for="inputGroupSelect02">Time of departure <span style="color: red; 
                 font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
                 <p id="note">
-                    -> Note: Food related question.
+                    &rarr; Note: Food related question.
                 </p>
             </div>
             <select class="custom-select" id="inputGroupSelect02"> 
-              <!-- placeholder="Vaša Voľba" -->
-              <option selected>Vaša Voľba</option>
+              
+              <!-- add placeholder
+                <select placeholder="Select">
+              <option selected>Choose...</option> 
+            <option [ngValue]="null">Select ...</option> -->
+
+              <option [ngValue]="null">Select ...</option>
               <option value="1">21.9. (Saturday) - end with breakfast</option>
               <option value="2">21.9. (Saturday) - end with lunch</option>
               <option value="3">21.9. (Saturday) - end with dinner</option>
@@ -312,7 +317,7 @@
                 <div class="form-group">
                     <label for="name" class="section-heading">Extra payments</label>
                     <p id="note">
-                        -> Note: The single-bed rooms are sold out now. In case of serious interest, 
+                        &rarr; Note: The single-bed rooms are sold out now. In case of serious interest, 
                         we can reserve accommodation in a single room in the cottage Martinské hole.
                         </p>
                 </div>
@@ -335,7 +340,7 @@
                 <legend class="font-heading">Accommodation for your companion? <span style="color: red; 
                   font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
                 <p id="note">
-                    -> Note: Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
+                    &rarr; Note: Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
                     </p>
                     <div class="row">
                   <div class="col-sm-10">
@@ -377,7 +382,7 @@
                       <legend class="font-heading">Banket for your companion? <span style="color: red; 
                         font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
                       <p id="note">
-                          -> Note: Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
+                          &rarr; Note: Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
                           </p>
                           <div class="row">
                         <div class="col-sm-10">
@@ -400,10 +405,10 @@
       <div class="form-group">
         <label for="shirt" class="font-heading">Would you like to buy another T-shirt ?</label>
         <p id="note">
-            -> Note: Please enter the number of T-shirts [+5€ each]. If needed state the T-shirt sizes and counts. 
+            &rarr; Note: Please enter the number of T-shirts [+5€ each]. If needed state the T-shirt sizes and counts. 
             Additional T-shirts are payed for at registration in cash.
         </p>
-        <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="2" formControlName="shirt" class="form-control"
+        <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="shirt" class="form-control"
          [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
         <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
         </div>
@@ -447,7 +452,7 @@
                     <label class="form-check-label" for="foodQuest5">
                         Other
                         <!-- textarea or some shit -->
-                        <input matInput placeholder="Iné:" required type="text" minlenght="2" formControlName="shirt" class="other-control"
+                        <input matInput placeholder="..." required type="text" minlenght="2" formControlName="shirt" class="other-control"
                     [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
                   <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
               </div>
@@ -459,7 +464,7 @@
 
       <div class="form-group">
             <label for="notes" class="font-heading">Room for your notes.</label>
-            <input matInput placeholder="Vaša odpoveď" required type="text" minlenght="2" formControlName="notes" class="form-control"
+            <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="notes" class="form-control"
              [ngClass]="{ 'is-invalid': submitted && f.notes.errors }" />
             <div *ngIf="submitted && f.notes.errors" class="invalid-feedback">
             </div>
@@ -467,7 +472,7 @@
         
     <div>
         <p id="note">
-            -> Note: You will recieve a confirmation email after submitting the registration form. 
+            &rarr; Note: You will recieve a confirmation email after submitting the registration form. 
             This email contains some registration details. 
             In case of any problems regarding this email, please contact us at  lubomir.antoni@upjs.sk
         </p>
@@ -485,21 +490,10 @@
   </div>
 <!--
   to do:
-        Time of departure is fucked
         Other food request is fucked
         input type
         CSS creator should be shot 
         genocide, as soon as posible
-  done:
-        text in payment method
-        missing 'section boxes'
-        notes
-        add povinne
-        media queries
-        red stars
-              it's my red star, can't let go
-              it's my red star, all i know
-
-  previos font: font-size: 1.25rem;
+  
   @import "∼bootstrap/dist/css/bootstrap.css";
 -->
