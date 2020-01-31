@@ -28,10 +28,10 @@
         <label for="name" class="font-heading">Name: <span style="color: red; 
         font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="name" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-            <div *ngIf="f.name.errors.required">This is a required question</div>
-            <div *ngIf="f.name.errors.minlenght">Name should have a nimimum {{ f.name.errors.minlenght.requiredLength }} characters.</div>
+         [ngClass]="{ 'is-invalid': submitted && validname.errors }" required #validname="ngModel" />
+        <div *ngIf="submitted && validname.errors" class="invalid-feedback">
+            <div *ngIf="validname.errors.required">This is a required question</div>
+            <div *ngIf="validname.errors.minlenght">Name should have a nimimum {{ validname.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
 
@@ -39,10 +39,10 @@
         <label for="surname" class="font-heading">Surname: <span style="color: red; 
           font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="surname" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />
-        <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
-            <div *ngIf="f.surname.errors.required">This is a required question</div>
-            <div *ngIf="f.surname.errors.minlenght">Surname should have a nimimum {{ f.surname.errors.minlenght.requiredLength }} characters.</div>
+         [ngClass]="{ 'is-invalid': submitted && validsurname.errors }" required #validsurname="ngModel"/>
+        <div *ngIf="submitted && validsurname.errors" class="invalid-feedback">
+            <div *ngIf="validsurname.errors.required">This is a required question</div>
+            <div *ngIf="validsurname.errors.minlenght">Surname should have a nimimum {{ validsurname.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
 
@@ -50,10 +50,10 @@
         <label for="mail" class="font-heading">Email: <span style="color: red; 
           font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Your Answer" required type="email" minlenght="2" formControlName="mail" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.mail.errors }" />
-        <div *ngIf="submitted && f.mail.errors" class="invalid-feedback">
-            <div *ngIf="f.mail.errors.required">This is a required question</div>
-            <div *ngIf="f.mail.errors.minlenght">Email should have a nimimum {{ f.mail.errors.minlenght.requiredLength }} characters.</div>
+         [ngClass]="{ 'is-invalid': submitted && validemail.errors }" required #validemail="ngModel"/>
+        <div *ngIf="submitted && validemail.errors" class="invalid-feedback">
+            <div *ngIf="validemail.errors.required">This is a required question</div>
+            <div *ngIf="validemail.errors.minlenght">Email should have a nimimum {{ validemail.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
 
@@ -61,30 +61,28 @@
         <label for="address" class="font-heading">Address: <span style="color: red; 
           font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
         <input matInput placeholder="Your Answer" required type="text" minlenght="3" formControlName="address" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
-        <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
-            <div *ngIf="f.address.errors.required">This is a required question</div>
-            <div *ngIf="f.address.errors.minlenght">Adress should have a nimimum {{ f.address.errors.minlenght.requiredLength }} characters.</div>
+         [ngClass]="{ 'is-invalid': submitted && validaddress.errors }" required #validaddress="ngModel"/>
+        <div *ngIf="submitted && validaddress.errors" class="invalid-feedback">
+            <div *ngIf="validaddress.errors.required">This is a required question</div>
+            <div *ngIf="validaddress.errors.minlenght">Adress should have a nimimum {{ validaddress.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
 
     <div class="form-group">
         <label for="regNumber" class="font-heading">Company registration number:</label>
-        <input matInput placeholder="Your Answer" required type="text" minlenght="8" formControlName="regNumber" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.regNumber.errors }" />
-        <div *ngIf="submitted && f.regNumber.errors" class="invalid-feedback">
-            <div *ngIf="f.regNumber.errors.required">This is a required question</div>
-            <div *ngIf="f.regNumber.errors.minlenght">Registration Number should have a nimimum {{ f.regNumber.errors.minlenght.requiredLength }} characters.</div>
+        <input matInput placeholder="Your Answer" type="text" minlenght="8" formControlName="regNumber" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && validcrn.errors }" required #validcrn="ngModel"/>
+        <div *ngIf="submitted && validcrn.errors" class="invalid-feedback">
+            <div *ngIf="validcrn.errors.minlenght">Registration Number should have a nimimum {{ validcrn.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
 
     <div class="form-group">
         <label for="ideNumber" class="font-heading">VAT identification number:</label>
-        <input matInput placeholder="Your Answer" required type="text" minlenght="3" formControlName="ideNumber" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.ideNumber.errors }" />
-        <div *ngIf="submitted && f.ideNumber.errors" class="invalid-feedback">
-            <div *ngIf="f.ideNumber.errors.required">This is a required question</div>
-            <div *ngIf="f.ideNumber.errors.minlenght">Identification Number should have a nimimum {{ f.ideNumber.errors.minlenght.requiredLength }} characters.</div>
+        <input matInput placeholder="Your Answer" type="text" minlenght="3" formControlName="ideNumber" class="form-control"
+         [ngClass]="{ 'is-invalid': submitted && validvat.errors }" required #validvat="ngModel"/>
+        <div *ngIf="submitted && validvat.errors" class="invalid-feedback">
+            <div *ngIf="validvat.errors.minlenght">Identification Number should have a nimimum {{ validvat.errors.minlenght.requiredLength }} characters.</div>
         </div>
     </div>
 
