@@ -25,7 +25,7 @@ export class FormData {
 
   private accommodation: string;
 
-  private blanket: string;
+  private banket: string;
 
   //private shirtbuy: string;
 
