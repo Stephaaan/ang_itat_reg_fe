@@ -1,497 +1,146 @@
-<p>registration-form works!</p>
-<!-- no it does not -->
-<!-- is qiute shite -->
-<form class="frm">
-    <!-- example 
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input required minlenght="3" maxlenght="20" ngModel name="firstName" #firstName="ngModel" 
-        pattern="nigga" (change)="log(firstName)" 
-        id="firstName" type="text" class="form-control">
-        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First Name is required.</div>
-        <div *ngIf="firstName.errors.required">First Name is required.</div>
-        <div *ngIf="firstName.errors.minlenght">First name should be a nimimum {{ firstName.errors.minlenght.requiredLength }} characters.</div>
-        <div *ngIf="firstName.errors.maxlenght">First name should be a maximum 20 characters.</div>
-        <div *ngIf="firstName.errors.pattern">First name doesn't match the pattern.</div>
+<form [formGroup]="mainFormGroup">
+  <div>
+      Name: <input type="text" formControlName="name" />
+    <div *ngIf="mainFormGroup.get('name').hasError('required') && mainFormGroup.get('name').touched">
+      Oops, please provide a name!
     </div>
-    example -->
-<div class="midsection">
-
-    <div class="form-group">
-        <label for="name" class="section-heading">Registration details</label>
-        <p id="redtext">
-          * Required
-        </p>
-    </div>
-
-    <div class="form-group">
-        <label for="name" class="font-heading">Name: <span style="color: red; 
-        font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="name" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && validname.errors }" required #validname="ngModel" />
-        <div *ngIf="submitted && validname.errors" class="invalid-feedback">
-            <div *ngIf="validname.errors.required">This is a required question</div>
-            <div *ngIf="validname.errors.minlenght">Name should have a nimimum {{ validname.errors.minlenght.requiredLength }} characters.</div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="surname" class="font-heading">Surname: <span style="color: red; 
-          font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="surname" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && validsurname.errors }" required #validsurname="ngModel"/>
-        <div *ngIf="submitted && validsurname.errors" class="invalid-feedback">
-            <div *ngIf="validsurname.errors.required">This is a required question</div>
-            <div *ngIf="validsurname.errors.minlenght">Surname should have a nimimum {{ validsurname.errors.minlenght.requiredLength }} characters.</div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="mail" class="font-heading">Email: <span style="color: red; 
-          font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Your Answer" required type="email" minlenght="2" formControlName="mail" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && validemail.errors }" required #validemail="ngModel"/>
-        <div *ngIf="submitted && validemail.errors" class="invalid-feedback">
-            <div *ngIf="validemail.errors.required">This is a required question</div>
-            <div *ngIf="validemail.errors.minlenght">Email should have a nimimum {{ validemail.errors.minlenght.requiredLength }} characters.</div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="address" class="font-heading">Address: <span style="color: red; 
-          font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-        <input matInput placeholder="Your Answer" required type="text" minlenght="3" formControlName="address" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && validaddress.errors }" required #validaddress="ngModel"/>
-        <div *ngIf="submitted && validaddress.errors" class="invalid-feedback">
-            <div *ngIf="validaddress.errors.required">This is a required question</div>
-            <div *ngIf="validaddress.errors.minlenght">Adress should have a nimimum {{ validaddress.errors.minlenght.requiredLength }} characters.</div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="regNumber" class="font-heading">Company registration number:</label>
-        <input matInput placeholder="Your Answer" type="text" minlenght="8" formControlName="regNumber" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && validcrn.errors }" required #validcrn="ngModel"/>
-        <div *ngIf="submitted && validcrn.errors" class="invalid-feedback">
-            <div *ngIf="validcrn.errors.minlenght">Registration Number should have a nimimum {{ validcrn.errors.minlenght.requiredLength }} characters.</div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="ideNumber" class="font-heading">VAT identification number:</label>
-        <input matInput placeholder="Your Answer" type="text" minlenght="3" formControlName="ideNumber" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && validvat.errors }" required #validvat="ngModel"/>
-        <div *ngIf="submitted && validvat.errors" class="invalid-feedback">
-            <div *ngIf="validvat.errors.minlenght">Identification Number should have a nimimum {{ validvat.errors.minlenght.requiredLength }} characters.</div>
-        </div>
-    </div>
-
-<fieldset class="form-group">
-    <p class="font-heading">We offer two registration variants: A = full conference, 
-      B = 2 nights. Student registration is available for both variants. (From 2nd August 2019) <span style="color: red; 
-      font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></p>
-      <p id="note">
-          &rarr; Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
-      </p>
-      <div class="row">
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant1" value="option1">
-        <label class="form-check-label" for="regVariant1">
-          Full conference - Full registration: 360 €
-           (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant2" value="option2">
-        <label class="form-check-label" for="regVariant2">
-          Full conference - Student registration: 305 €
-           (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant3" value="option3">
-        <label class="form-check-label" for="regVariant3">
-          Full conference - Student registration
-           - student presenting paper: 235 €
-           (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant4" value="option4">
-        <label class="form-check-label" for="regVariant4">
-          Computational Intelligence and Data Mining (4 days)
-             - Full registration: 360 €
-             (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant5" value="option5">
-        <label class="form-check-label" for="regVariant5">
-          Computational Intelligence and Data Mining (4 days)
-             - Student registation: 305 €
-             (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant6" value="option6">
-        <label class="form-check-label" for="regVariant6">
-          Computational Intelligence and Data Mining (4 days)
-             - Student registation - student presenting paper: 235 €
-             (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant7" value="option7">
-        <label class="form-check-label" for="regVariant7">
-          CZ-SK NLP workshop
-             - Full registration 250€ 
-             (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant8" value="option8">
-        <label class="form-check-label" for="regVariant8">
-          CZ-SK NLP workshop - Student registration 200€ 
-             (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant9" value="option9">
-        <label class="form-check-label" for="regVariant9">
-          CZ-SK NLP workshop - Student registration - student presenting paper 130€ 
-             (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant10" value="option10">
-        <label class="form-check-label" for="regVariant10">
-          Intelligent speech and audio technologies workshop
-             - Full registration: 250€ 
-             (fee + digital almanac + coffee breaks + banket + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant11" value="option11">
-        <label class="form-check-label" for="regVariant11">
-          Intelligent speech and audio technologies workshop
-             - Student registration 200€
-              (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="regVariant" id="regVariant12" value="option12">
-        <label class="form-check-label" for="regVariant12">
-          Intelligent speech and audio technologies workshop - Student registration
-             - student presenting paper 130€ 
-             (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
-        </label>
-      </div>
-
+    <div *ngIf="(mainFormGroup.get('name').hasError('minlength') && !mainFormGroup.get('name').hasError('required')) && mainFormGroup.get('surname').touched">
+      Short name
     </div>
   </div>
-</fieldset>
 
-<fieldset class="form-group">
-    <legend class="font-heading">Payment method: <span style="color: red; 
-      font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
-        <div class="row">
-      <div class="col-sm-10">
-        <div class="form-check">
-              <input class="form-check-input" type="radio" name="payMethod" id="payMethod1" value="option1">
-              <label class="form-check-label" for="payMethod1">
-                cash (upon registration)
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="payMethod" id="payMethod2" value="option2">
-              <label class="form-check-label" for="payMethod2">
-                  Bank transfer (bank account: 2628717743/1100 
-                  (Tatra banka, a.s. Hodžovo namestie 3, 811 06 Bratislava), IBAN SK50 1100 0000 0026 2871 7743, SWIFT: TATR SK BX 
-                  (Slovenská spoločnosť pre umelú inteligenciu (SAIS), Letná 9, 040 00 Košice). 
-                  Please, after the bank transfer, send us the confirmation of payment to peter.gursky@upjs.sk.
-              </label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      
-    <!-- Change parameters to current values -->
-
-      <div class="form-group">
-            <div class="input-group flex-col">
-              <label class="font-heading" for="inputGroupSelect01">Time of arrival <span style="color: red; 
-                font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-                <p id="note"> 
-                    &rarr; Note: Food related question. Workshops start with dinner and end with breakfast. 
-                    If you choose an earlier arrival or a later departure, the additional food will be priced.
-                </p>
-            </div>
-            <select class="custom-select" id="inputGroupSelect01">
-   
-              <option value="1">20.9. (Friday) - start with dinner</option>
-              <option value="2">21.9. (Saturday) - start with breakfast</option>
-              <option value="3">21.9. (Saturday) - start with lunch</option>
-              <option value="4">21.9. (Saturday) - start with dinner</option>
-              <option value="5">22.9. (Sunday) - start with breakfast</option>
-              <option value="6">22.9. (Sunday) - start with lunch</option>
-              <option value="7">22.9. (Sunday) - start with dinner</option>
-              <option value="8">23.9. (Monday) - start with breakfast</option>
-              <option value="9">23.9. (Monday) - start with lunch</option>
-              <option value="10">23.9. (Monday) - start with dinner</option>
-            </select>
-          </div>
-          
-      <!-- Change parameters to current values -->
-
-      <div class="form-group">
-            <div class="input-group flex-col">
-              <label class="font-heading" for="inputGroupSelect02">Time of departure <span style="color: red; 
-                font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></label>
-                <p id="note">
-                    &rarr; Note: Food related question.
-                </p>
-            </div>
-            <select class="custom-select" id="inputGroupSelect02"> 
-              
-              <!-- add placeholder
-                <select placeholder="Select">
-              <option selected>Choose...</option> 
-            <option [ngValue]="null">Select ...</option> -->
-
-              <option [ngValue]="null">Select ...</option>
-              <option value="1">21.9. (Saturday) - end with breakfast</option>
-              <option value="2">21.9. (Saturday) - end with lunch</option>
-              <option value="3">21.9. (Saturday) - end with dinner</option>
-              <option value="4">22.9. (Sunday) - end with breakfast</option>
-              <option value="5">22.9. (Sunday) - end with lunch</option>
-              <option value="6">22.9. (Sunday) - end with dinner</option>
-              <option value="7">23.9. (Monday) - end with breakfast</option>
-              <option value="8">23.9. (Monday) - end with lunch</option>
-              <option value="9">23.9. (Monday) - end with dinner</option>
-              <option value="10">24.9. (Tuesday) - end with breakfast</option>
-            </select>
-          </div>
-
-          <fieldset class="form-group">
-              <legend class="font-heading">T-shirt size <span style="color: red; 
-                font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
-                  <div class="row">
-                <div class="col-sm-10">
-                  <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shirtSize" id="shirtSize1" value="option1">
-                        <label class="form-check-label" for="shirtSize1">
-                          C
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shirtSize" id="shirtSize2" value="option2">
-                        <label class="form-check-label" for="shirtSize2">
-                            M
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shirtSize" id="shirtSize3" value="option3">
-                        <label class="form-check-label" for="shirtSize3">
-                            L
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shirtSize" id="shirtSize4" value="option4">
-                        <label class="form-check-label" for="shirtSize4">
-                            XL
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="shirtSize" id="shirtSize5" value="option5">
-                        <label class="form-check-label" for="shirtSize5">
-                            XXL
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <div class="form-group">
-                    <label for="name" class="section-heading">Extra payments</label>
-                    <p id="note">
-                        &rarr; Note: The single-bed rooms are sold out now. In case of serious interest, 
-                        we can reserve accommodation in a single room in the cottage Martinské hole.
-                        </p>
-                </div>
-
-      <fieldset class="form-group">
-          <legend class="font-heading">Extra payments</legend>
-              <div class="row">
-            <div class="col-sm-10">
-              <div class="form-check">
-                    <input class="form-check-input" type="radio" name="extraPay" id="extraPay1" value="option1">
-                    <label class="form-check-label" for="extraPay1">
-                        single bed rooms +70 eur, only for full registration
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset class="form-group">
-                <legend class="font-heading">Accommodation for your companion? <span style="color: red; 
-                  font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
-                <p id="note">
-                    &rarr; Note: Accommodation, coffee breaks and full board. If your companion are children, please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
-                    </p>
-                    <div class="row">
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                          <input class="form-check-input" type="radio" name="accVariant" id="accVariant1" value="option1">
-                          <label class="form-check-label" for="accVariant1">
-                              yes, for 1 night [+50€] (lunch, dinner and breakfast for the next day)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="accVariant" id="accVariant2" value="option2">
-                          <label class="form-check-label" for="accVariant2">
-                              yes, for 2 nights [+45€/night]
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="accVariant" id="accVariant3" value="option3">
-                          <label class="form-check-label" for="accVariant3">
-                              yes, for 3 nights [+45€/night]
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="accVariant" id="accVariant4" value="option4">
-                          <label class="form-check-label" for="accVariant4">
-                              yes, for 4 nights [+195€] (during the whole conference)
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="accVariant" id="accVariant5" value="option5">
-                          <label class="form-check-label" for="accVariant5">
-                              no
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-
-                  <fieldset class="form-group">
-                      <legend class="font-heading">Banket for your companion? <span style="color: red; 
-                        font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
-                      <p id="note">
-                          &rarr; Note: Entry for the banket (whole night - dinner and entertainment) - Sunday 22.9.2019
-                          </p>
-                          <div class="row">
-                        <div class="col-sm-10">
-                          <div class="form-check">
-                                <input class="form-check-input" type="radio" name="blanketGet" id="blanketGet1" value="option1">
-                                <label class="form-check-label" for="blanketGet1">
-                                    yes [+15€]
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="blanketGet" id="blanketGet2" value="option2">
-                                <label class="form-check-label" for="blanketGet2">
-                                    no
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                        </fieldset>
-
-      <div class="form-group">
-        <label for="shirt" class="font-heading">Would you like to buy another T-shirt ?</label>
-        <p id="note">
-            &rarr; Note: Please enter the number of T-shirts [+5€ each]. If needed state the T-shirt sizes and counts. 
-            Additional T-shirts are payed for at registration in cash.
-        </p>
-        <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="shirt" class="form-control"
-         [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
-        <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
-        </div>
-      </div>
-      
-      <div class="form-group">
-          <label for="name" class="section-heading">Special requests</label>
-      </div>
-
-      <fieldset class="form-group">
-          <legend class="font-heading">Do you have special requests regarding the food? <span style="color: red; 
-            font-size: 1.10rem; font-family: 'Roboto Condensed', sans-serif;">*</span></legend>
-              <div class="row">
-            <div class="col-sm-10">
-              <div class="form-check">
-                    <input class="form-check-input" type="radio" name="foodQuest" id="foodQuest1" value="option1">
-                    <label class="form-check-label" for="foodQuest1">
-                      no
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="foodQuest" id="foodQuest2" value="option2">
-                    <label class="form-check-label" for="foodQuest2">
-                        vegetarian diet
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="foodQuest" id="foodQuest3" value="option3">
-                    <label class="form-check-label" for="foodQuest3">
-                        vegan diet
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="foodQuest" id="foodQuest4" value="option4">
-                    <label class="form-check-label" for="foodQuest4">
-                        gluten-free diet
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="foodQuest" id="foodQuest5" value="option5">
-                    <label class="form-check-label" for="foodQuest5">
-                        Other
-                        <!-- textarea or some shit -->
-                        <input matInput placeholder="..." required type="text" minlenght="2" formControlName="shirt" class="other-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.shirt.errors }" />
-                  <div *ngIf="submitted && f.shirt.errors" class="invalid-feedback">
-              </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-
-      <div class="form-group">
-            <label for="notes" class="font-heading">Room for your notes.</label>
-            <input matInput placeholder="Your Answer" required type="text" minlenght="2" formControlName="notes" class="form-control"
-             [ngClass]="{ 'is-invalid': submitted && f.notes.errors }" />
-            <div *ngIf="submitted && f.notes.errors" class="invalid-feedback">
-            </div>
-          </div>
-        
-    <div>
-        <p id="note">
-            &rarr; Note: You will recieve a confirmation email after submitting the registration form. 
-            This email contains some registration details. 
-            In case of any problems regarding this email, please contact us at  lubomir.antoni@upjs.sk
-        </p>
-        </div>
-        
-     <!--   <button>submit</button>
-     </form> -->
-
-    <!--<div class="form-group">
-        <label for="comment">Comment</label>
-        <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-    </div>-->
-    
-    <button class="btn btn-primary">SEND</button>
+  <div>
+    Surname: 
+    <input type="text" formControlName="surname" />
+    <div *ngIf="mainFormGroup.get('surname').hasError('required') && mainFormGroup.get('surname').touched">
+      Oops, please provide a surname!
+    </div>
+    <div *ngIf="(mainFormGroup.get('surname').hasError('minlength') && !mainFormGroup.get('surname').hasError('required')) && mainFormGroup.get('surname').touched">
+      Short name
+    </div>
   </div>
-<!--
-  to do:
-        Other food request is fucked
-        input type
-        CSS creator should be shot 
-        genocide, as soon as posible
-  
-  @import "∼bootstrap/dist/css/bootstrap.css";
--->
+
+  <div>
+    Email: 
+    <input type="text" formControlName="email" />
+    <div *ngIf="(mainFormGroup.get('email').hasError('email') || mainFormGroup.get('email').hasError('required')) && mainFormGroup.get('email').touched">
+      Invalid Email!
+    </div>
+  </div>
+
+  <div>
+    Organisation: 
+    <input type="text" formControlName="organisation" />
+    <div *ngIf="mainFormGroup.get('organisation').hasError('required') && mainFormGroup.get('organisation').touched">
+      Provide Organisation!
+    </div>
+  </div>
+
+  <div>
+    Address: 
+    <input type="text" formControlName="address" />
+    <div *ngIf="mainFormGroup.get('address').hasError('required') && mainFormGroup.get('address').touched">
+      Provide Address!
+    </div>
+  </div>
+
+  <div>
+    Company registration number: 
+    <input type="text" formControlName="crn" />
+  </div>
+
+  <div>
+    VAT Identification Number: 
+    <input type="text" formControlName="vat" />
+  </div>
+
+  <div>
+    Registration Variants: 
+    <span>
+      <input type="radio" value="1" formControlName="regVariant" /> Variant 1
+    </span>
+    <span>
+      <input type="radio" value="2" formControlName="regVariant" /> Variant 2
+    </span>
+    <div *ngIf="mainFormGroup.get('regVariant').hasError('required') && mainFormGroup.get('regVariant').touched">
+      Provide Registration Variant!
+    </div>
+  </div>
+
+  <div>
+    Payment Method: 
+    <span>
+      <input type="radio" value="payment1" formControlName="payment" /> Variant 1
+    </span>
+    <span>
+      <input type="radio" value="payment2" formControlName="payment" /> Variant 2
+    </span>
+    <div *ngIf="mainFormGroup.get('payment').hasError('required') && mainFormGroup.get('payment').touched">
+      Provide Payment Method!
+    </div>
+  </div>
+
+  <div>
+    Time of Arrival: 
+    <select formControlName="toa">
+      <option>1</option>
+      <option>2</option>
+    </select>
+    <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
+      Provide Time of Arrival!
+    </div>
+  </div>
+
+  <div>
+    Time of Departure: 
+    <select formControlName="tod">
+      <option>1</option>
+      <option>2</option>
+    </select>
+    <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
+      Provide Time of Departure!
+    </div>
+  </div>
+
+  <div formArrayName="companion">
+    Companion: 
+    <div *ngFor="let c of companion.controls; let i = index">
+      <div class="form_group" [formGroupName]="i">
+        name: <input formControlName="name">
+        <div *ngIf="c.get('name').hasError('required') && c.get('name').touched">This Field is required!</div>
+        from: <input formControlName="from">
+        <div *ngIf="c.get('from').hasError('required') && c.get('from').touched">This Field is required!</div>
+        to: <input formControlName="to">
+        <div *ngIf="c.get('to').hasError('required') && c.get('to').touched">This Field is required!</div>
+        <button (click)="removeCompanion(i)">Delete</button>
+      </div>
+    </div>
+
+    <button (click)="addCompanion()">Add Companion</button>
+  </div>
+
+  <div>
+    T-Shirt Size: 
+    <span>
+      <input type="radio" value="s" formControlName="tshirt" /> S
+    </span>
+    <span>
+      <input type="radio" value="m" formControlName="tshirt" /> M
+    </span>
+    <div *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
+      Provide T-Shirt Size!
+    </div>
+  </div>
+  <div>
+    Single Bedroom
+    <input type="checkbox" formControlName="singleBedroom">
+  </div>
+  <div>
+    Special Food requests:
+    <input formControlName="foodRequests">
+  </div>  
+  <div>
+    Notes:
+    <input formControlName="notes">
+  </div>
+</form>
