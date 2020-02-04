@@ -48,7 +48,16 @@ background: #C4C4C4;
     
 }
 @media screen and (max-width: 1000px){
-    .frm{
+
+    .message {
+        font-size: 0.90rem;
+    }
+    
+    #maintitle {
+        font-size: 1.50rem;
+    }
+
+    .frm {
         width: 80%;
     }
     .font-heading {
@@ -76,7 +85,16 @@ background: #C4C4C4;
 }  
 
 @media screen and (max-width: 500px){
-    .frm{
+
+    .message {
+        font-size: 0.80rem;
+    }
+    
+    #maintitle {
+        font-size: 1.25rem;
+    }
+
+    .frm {
         width: 90%;
     }
     .font-heading {
