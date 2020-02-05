@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges } from "@angular/core";
+import { ConfigService } from './../services/config.service';
+import { Component, OnInit, } from "@angular/core";
 import { FormData } from '../entities/FormData.model';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 
@@ -7,13 +8,11 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@ang
   templateUrl: "./registration-form.component.html",
   styleUrls: ["./registration-form.component.css"]
 })
-export class RegistrationFormComponent implements OnInit, OnChanges {
-  private formData = new FormData()
+export class RegistrationFormComponent implements OnInit {
+  private formData = new FormData();
   private mainFormGroup;
-  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    console.log(this.formData);  
-  }
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, private configService: ConfigService) {
     this.mainFormGroup = this.fb.group({
       name: this.setupTextFormControl(),
       surname: this.setupTextFormControl(),
@@ -31,7 +30,7 @@ export class RegistrationFormComponent implements OnInit, OnChanges {
       foodRequests: [""],
       notes: [""],
       companion: this.fb.array([])
-      
+
     })
   }
   setupTextFormControl() {
@@ -51,5 +50,7 @@ export class RegistrationFormComponent implements OnInit, OnChanges {
   removeCompanion(i:number) {
     this.mainFormGroup.get("companion").removeAt(i);
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.configService.getConfig().subscribe();
+  }
 }
