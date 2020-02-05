@@ -36,6 +36,10 @@ background: #C4C4C4;
 .form_group .heading {
 
 }
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
 .form-control{
   display: flex;
   width: 100%;
@@ -53,7 +57,12 @@ background: #C4C4C4;
     flex-direction: column;
 }
 .flex-col {
-
+  display: flex;
+  flex-direction: column;
+}
+#subutton{
+  width: 80px;
+  cursor: pointer;
 }
 @media screen and (max-width: 1000px){
     .form-control {

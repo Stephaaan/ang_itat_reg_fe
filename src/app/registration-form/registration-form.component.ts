@@ -1,3 +1,4 @@
+import { Config } from './../entities/Config.model';
 import { ConfigService } from './../services/config.service';
 import { Component, OnInit, } from "@angular/core";
 import { FormData } from '../entities/FormData.model';
@@ -11,6 +12,7 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@ang
 export class RegistrationFormComponent implements OnInit {
   private formData = new FormData();
   private mainFormGroup;
+  private config: Config | null = null;
 
   constructor(private fb: FormBuilder, private configService: ConfigService) {
     this.mainFormGroup = this.fb.group({
@@ -22,7 +24,7 @@ export class RegistrationFormComponent implements OnInit {
       crn: [''],
       vat: [''],
       regVariant: ["", [Validators.required]],
-      payment: ["", [Validators.required]],
+    payment: ["", [Validators.required]],
       toa: ["", Validators.required],
       tod: ["", Validators.required],
       tshirt: ["", Validators.required],
@@ -51,6 +53,9 @@ export class RegistrationFormComponent implements OnInit {
     this.mainFormGroup.get("companion").removeAt(i);
   }
   ngOnInit() {
-    this.configService.getConfig().subscribe();
+    this.configService.getConfig().subscribe(config => this.config = config);
+  }
+  onSubmit(){
+    console.log(this.mainFormGroup)
   }
 }
