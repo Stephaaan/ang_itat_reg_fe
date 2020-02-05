@@ -28,7 +28,7 @@
       </div>
 
     <div *ngIf="mainFormGroup.get('name').hasError('required') && mainFormGroup.get('name').touched">
-      Oops, please provide a name!
+      Name is a required field!
     </div>
     <div *ngIf="(mainFormGroup.get('name').hasError('minlength') && !mainFormGroup.get('name').hasError('required')) && mainFormGroup.get('surname').touched">
       Short name
@@ -44,7 +44,7 @@
     </div>
 
     <div *ngIf="mainFormGroup.get('surname').hasError('required') && mainFormGroup.get('surname').touched">
-      Oops, please provide a surname!
+      Surname is a required field!
     </div>
     <div *ngIf="(mainFormGroup.get('surname').hasError('minlength') && !mainFormGroup.get('surname').hasError('required')) && mainFormGroup.get('surname').touched">
       Short name
@@ -73,7 +73,7 @@
     </div>
 
     <div *ngIf="mainFormGroup.get('organisation').hasError('required') && mainFormGroup.get('organisation').touched">
-      Provide Organisation!
+      Organisation is a required field!
     </div>
   </div>
 
@@ -86,7 +86,7 @@
 
     <input type="text" formControlName="address" />
     <div *ngIf="mainFormGroup.get('address').hasError('required') && mainFormGroup.get('address').touched">
-      Provide Address!
+      Address is a required field!
     </div>
   </div>
 
@@ -172,7 +172,7 @@
     </span>
 
     <div *ngIf="mainFormGroup.get('regVariant').hasError('required') && mainFormGroup.get('regVariant').touched">
-      Provide Registration Variant!
+      Registration Variant is a required field!
     </div>
   </div>
 
@@ -191,7 +191,7 @@
       Please, after the bank transfer, send us the confirmation of payment to peter.gursky@upjs.sk.
     </span>
     <div *ngIf="mainFormGroup.get('payment').hasError('required') && mainFormGroup.get('payment').touched">
-      Provide Payment Method!
+      Payment Method is a required field!
     </div>
   </div>
 
@@ -218,7 +218,7 @@
       <option>23.9. (Monday) - start with dinner</option>
     </select>
     <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
-      Provide Time of Arrival!
+      Time of Arrival is a required field!
     </div>
   </div>
 
@@ -244,7 +244,7 @@
       <option>24.9. (Tuesday) - end with breakfast</option>
     </select>
     <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
-      Provide Time of Departure!
+      Time of Departure is a required field!
     </div>
   </div>
 
@@ -268,7 +268,7 @@
         <input type="radio" value="xxl" formControlName="tshirt" /> XXL
       </span>
       <div *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
-        Provide T-Shirt Size!
+        T-Shirt Size is a required field!
       </div>
     </div>
 
@@ -312,53 +312,6 @@
   </div>
 
   <div class="form-group">
-      <label class="font-heading">
-        Accommodation for your companion? <span id="star">*</span>
-        <p id="note">
-            &rarr; Note: Accommodation, coffee breaks and full board. If your companion are children,
-            please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
-          </p>
-      </label>
-      <span>
-        <input type="radio" value="accommodation1" formControlName="accommodation" /> yes, for 1 night [+50€] (lunch, dinner and breakfast for the next day)
-      </span>
-      <span>
-        <input type="radio" value="accommodation2" formControlName="accommodation" /> yes, for 2 nights [+45€/night]
-      </span>
-      <span>
-        <input type="radio" value="accommodation3" formControlName="accommodation" /> yes, for 3 nights [+45€/night]
-      </span>
-      <span>
-        <input type="radio" value="accommodation4" formControlName="accommodation" /> yes, for 4 nights [+195€] (during the whole conference)
-      </span>
-      <span>
-        <input type="radio" value="accommodation5" formControlName="accommodation" /> no
-      </span>
-      <div *ngIf="mainFormGroup.get('accommodation').hasError('required') && mainFormGroup.get('accommodation').touched">
-        Provide Accommodation info!
-      </div>
-    </div>
-
-      <div class="form-group">
-      <label class="font-heading">
-          Banket for your companion? <span id="star">*</span>
-        <p id="note">
-            &rarr; Note: Entry for the banket
-            (whole night - dinner and entertainment) - Sunday 22.9.2019
-        </p>
-      </label>
-      <span>
-        <input type="radio" value="banket1" formControlName="banket" /> yes [+15€]
-      </span>
-      <span>
-        <input type="radio" value="banket2" formControlName="banket" /> no
-      </span>
-      <div *ngIf="mainFormGroup.get('banket').hasError('required') && mainFormGroup.get('banket').touched">
-        Provide Banket info!
-      </div>
-    </div>
-
-  <div class="form-group">
     <div class="form-control">
     <label class="font-heading">
     Would you like to buy another T-shirt ?
@@ -380,22 +333,22 @@
         Do you have special requests regarding the food?
       </label>
       <span>
-        <input type="radio" value="foodRequests1" formControlName="foodRequests" /> no
+        <input type="radio" value="1" formControlName="foodRequests" /> no
       </span>
       <span>
-        <input type="radio" value="foodRequests2" formControlName="foodRequests" /> vegetarian diet
+        <input type="radio" value="2" formControlName="foodRequests" /> vegetarian diet
       </span>
       <span>
-        <input type="radio" value="foodRequests3" formControlName="foodRequests" /> vegan diet
+        <input type="radio" value="3" formControlName="foodRequests" /> vegan diet
       </span>
       <span>
-        <input type="radio" value="foodRequests4" formControlName="foodRequests" /> gluten-free diet
+        <input type="radio" value="4" formControlName="foodRequests" /> gluten-free diet
       </span>
       <span>
-        <input type="radio" value="foodRequests5" formControlName="foodRequests" /> Other
+        <input type="radio" value="5" formControlName="foodRequests" /> Other
       </span>
       <div *ngIf="mainFormGroup.get('foodRequests').hasError('required') && mainFormGroup.get('foodRequests').touched">
-        Provide Food info!
+        Special Requests is a required field!
       </div>
     </div>
 
