@@ -1,5 +1,5 @@
-<form class="frm" [formGroup]="mainFormGroup">
-  
+<form class="frm" [formGroup]="mainFormGroup" *ngIf="config" (ngSubmit)="onSubmit()">
+
   <div class="midsection">
 
 <div class="form-group">
@@ -9,23 +9,26 @@
           (20. 9. 2020 - 24. 9. 2020).
         </p>
     </div>
-	
+
 <!-- place for hotel info, if there is one -->
 
   <div class="section-heading">
-      Registration details 
+      Registration details
     <p id="redtext">
         * Required
     </p>
   </div>
 
   <div class="form-group">
-      <label class="font-heading">
-      Name: <span id="star">*</span>
-      </label>
-      <input type="text" formControlName="name" />
+      <div class="form-control">
+        <label class="font-heading">
+          Name: <span id="star">*</span>
+          </label>
+          <input type="text" formControlName="name" />
+      </div>
+
     <div *ngIf="mainFormGroup.get('name').hasError('required') && mainFormGroup.get('name').touched">
-      Oops, please provide a name!
+      Name is a required field!
     </div>
     <div *ngIf="(mainFormGroup.get('name').hasError('minlength') && !mainFormGroup.get('name').hasError('required')) && mainFormGroup.get('surname').touched">
       Short name
@@ -33,12 +36,15 @@
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Surname: <span id="star">*</span>
      </label>
     <input type="text" formControlName="surname" />
+    </div>
+
     <div *ngIf="mainFormGroup.get('surname').hasError('required') && mainFormGroup.get('surname').touched">
-      Oops, please provide a surname!
+      Surname is a required field!
     </div>
     <div *ngIf="(mainFormGroup.get('surname').hasError('minlength') && !mainFormGroup.get('surname').hasError('required')) && mainFormGroup.get('surname').touched">
       Short name
@@ -46,133 +52,95 @@
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Email: <span id="star">*</span>
     </label>
     <input type="text" formControlName="email" />
+    </div>
+
     <div *ngIf="(mainFormGroup.get('email').hasError('email') || mainFormGroup.get('email').hasError('required')) && mainFormGroup.get('email').touched">
       Invalid Email!
     </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Organisation: <span id="star">*</span>
     </label>
     <input type="text" formControlName="organisation" />
+    </div>
+
     <div *ngIf="mainFormGroup.get('organisation').hasError('required') && mainFormGroup.get('organisation').touched">
-      Provide Organisation!
+      Organisation is a required field!
     </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Address: <span id="star">*</span>
     </label>
     <input type="text" formControlName="address" />
+    </div>
+
+
     <div *ngIf="mainFormGroup.get('address').hasError('required') && mainFormGroup.get('address').touched">
-      Provide Address!
+      Address is a required field!
     </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
-    Company registration number: 
+    Company registration number:
     </label>
     <input type="text" formControlName="crn" />
+    </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
-    VAT Identification Number: 
+    VAT Identification Number:
     </label>
     <input type="text" formControlName="vat" />
+    </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group radio-group flex-col">
     <label class="font-heading">
     Registration Variants: <span id="star">*</span>
     </label>
     <span>
       <p id="extra">
-          We offer two registration variants: A = full conference, 
+          We offer two registration variants: A = full conference,
           B = 2 nights. Student registration is available for both variants. (From 2nd August 2019)
       </p>
       <p id="note">
           &rarr; Note: Workshop registrations are available only during the worshops days. The program of workshop CIDM is scheduled 4 days.
       </p>
     </span>
-    <span>
-      <input type="radio" value="1" formControlName="regVariant" /> Full conference 
-      - Full registration: 360 € (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
-    </span>
-    <span>
-      <input type="radio" value="2" formControlName="regVariant" /> Full conference 
-      - Student registration: 305 € (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
-    </span>
-    <span>
-      <input type="radio" value="3" formControlName="regVariant" /> Full conference 
-      - Student registration - student presenting paper: 235 €
-      (fee + digital almanac + coffee breaks + accommodation + full board during the whole conference)
-    </span>
-    <span>
-      <input type="radio" value="4" formControlName="regVariant" /> Computational Intelligence and Data Mining (4 days)
-      - Full registration: 360 € (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="5" formControlName="regVariant" /> Computational Intelligence and Data Mining (4 days)
-      - Student registation: 305 € (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="6" formControlName="regVariant" /> Computational Intelligence and Data Mining (4 days)
-      - Student registation - student presenting paper: 235 € (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="7" formControlName="regVariant" /> CZ-SK NLP workshop
-      - Full registration 250€ (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="8" formControlName="regVariant" /> CZ-SK NLP workshop 
-      - Student registration 200€ (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="9" formControlName="regVariant" /> CZ-SK NLP workshop 
-      - Student registration - student presenting paper 130€ (fee + digital almanac + coffee breaks + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="10" formControlName="regVariant" /> Intelligent speech and audio technologies workshop
-      - Full registration: 250€ (fee + digital almanac + coffee breaks + banket + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="11" formControlName="regVariant" /> Intelligent speech and audio technologies workshop
-      - Student registration 200€ (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
-    </span>
-    <span>
-      <input type="radio" value="12" formControlName="regVariant" /> Intelligent speech and audio technologies workshop 
-      - Student registration (fee + digital almanach + coffee breaks + banket + accommodation + full board for 2 nights)
+    <span *ngFor="let item of config.registration_variants" >
+      <input type="radio" [value]="item.text" formControlName="regVariant" /> {{item.text}}
     </span>
 
+
     <div *ngIf="mainFormGroup.get('regVariant').hasError('required') && mainFormGroup.get('regVariant').touched">
-      Provide Registration Variant!
+      Registration Variant is a required field!
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group flex-col">
     <label class="font-heading">
     Payment Method: <span id="star">*</span>
     </label>
-    <span>
-      <input type="radio" value="payment1" formControlName="payment" /> cash 
-      (upon registration)
-    </span>
-    <span>
-      <input type="radio" value="payment2" formControlName="payment" /> Bank transfer 
-      (bank account: 2628717743/1100 (Tatra banka, a.s. Hodžovo namestie 3, 811 06 Bratislava), 
-      IBAN SK50 1100 0000 0026 2871 7743, SWIFT: TATR SK BX (Slovenská spoločnosť pre umelú inteligenciu (SAIS), Letná 9, 040 00 Košice). 
-      Please, after the bank transfer, send us the confirmation of payment to peter.gursky@upjs.sk.
+    <span *ngFor="let item of config.payment_methods" >
+      <input type="radio" [value]="item.text" formControlName="payment" /> {{item.text}}
     </span>
     <div *ngIf="mainFormGroup.get('payment').hasError('required') && mainFormGroup.get('payment').touched">
-      Provide Payment Method!
+      Payment Method is a required field!
     </div>
   </div>
 
@@ -183,23 +151,14 @@
     Time of Arrival: <span id="star">*</span>
   </label>
   <p id="note">
-      &rarr; Note: Food related question. Workshops start with dinner and end with breakfast. 
+      &rarr; Note: Food related question. Workshops start with dinner and end with breakfast.
       If you choose an earlier arrival or a later departure, the additional food will be priced.
   </p>
     <select formControlName="toa">
-      <option>20.9. (Friday) - start with dinner</option>
-      <option>21.9. (Saturday) - start with breakfast</option>
-      <option>21.9. (Saturday) - start with lunch</option>
-      <option>21.9. (Saturday) - start with dinner</option>
-      <option>22.9. (Sunday) - start with breakfast</option>
-      <option>22.9. (Sunday) - start with lunch</option>
-      <option>22.9. (Sunday) - start with dinner</option>
-      <option>23.9. (Monday) - start with breakfast</option>
-      <option>23.9. (Monday) - start with lunch</option>
-      <option>23.9. (Monday) - start with dinner</option>
+      <option *ngFor="let item of config.time_arrival" >{{item.text}}</option>
     </select>
     <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
-      Provide Time of Arrival!
+      Time of Arrival is a required field!
     </div>
   </div>
 
@@ -213,50 +172,30 @@
         &rarr; Note: Food related question.
     </p>
     <select formControlName="tod">
-      <option>21.9. (Saturday) - end with breakfast</option>
-      <option>21.9. (Saturday) - end with lunch</option>
-      <option>21.9. (Saturday) - end with dinner</option>
-      <option>22.9. (Sunday) - end with breakfast</option>
-      <option>22.9. (Sunday) - end with lunch</option>
-      <option>22.9. (Sunday) - end with dinner</option>
-      <option>23.9. (Monday) - end with breakfast</option>
-      <option>23.9. (Monday) - end with lunch</option>
-      <option>23.9. (Monday) - end with dinner</option>
-      <option>24.9. (Tuesday) - end with breakfast</option>
+      <option *ngFor="let item of config.time_departure" >{{item.text}}</option>
     </select>
     <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
-      Provide Time of Departure!
+      Time of Departure is a required field!
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group flex-col">
       <label class="font-heading">
       T-Shirt Size: <span id="star">*</span>
     </label>
-      <span>
-        <input type="radio" value="s" formControlName="tshirt" /> S
+      <span *ngFor="let item of config.tshirt_size" >
+        <input type="radio" (value)="item.text" formControlName="tshirt" />  {{item.text}}
       </span>
-      <span>
-        <input type="radio" value="m" formControlName="tshirt" /> M
-      </span>
-      <span>
-        <input type="radio" value="m" formControlName="tshirt" /> L
-      </span>
-      <span>
-        <input type="radio" value="m" formControlName="tshirt" /> XL
-      </span>
-      <span>
-        <input type="radio" value="m" formControlName="tshirt" /> XXL
-      </span>
+
       <div *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
-        Provide T-Shirt Size!
+        T-Shirt Size is a required field!
       </div>
     </div>
 
   <div class="section-heading">
       Extra payments
     <p id="note">
-        &rarr; Note: The single-bed rooms are sold out now. In case of serious interest, 
+        &rarr; Note: The single-bed rooms are sold out now. In case of serious interest,
         we can reserve accommodation in a single room in the cottage Martinské hole.
     </p>
   </div>
@@ -268,11 +207,11 @@
             &rarr; Note: Single Bedroom
           </p>
       </label>
-      <span>
-          <input type="checkbox" formControlName="singleBedroom">single bed rooms +70 eur, only for full registration
+      <span *ngFor="let item of config.extra_payments" >
+          <input type="checkbox" formControlName="singleBedroom">{{item.text}}
       </span>
     </div>
-  
+
   <div formArrayName="companion">
       <label class="font-heading">
     Companion: <span id="star">*</span>
@@ -292,108 +231,40 @@
     <button (click)="addCompanion()">Add Companion</button>
   </div>
 
-  <div class="form-group">
-      <label class="font-heading">
-        Accommodation for your companion? <span id="star">*</span>
-        <p id="note">
-            &rarr; Note: Accommodation, coffee breaks and full board. If your companion are children, 
-            please write the age of children to mail: peter.gursky@upjs.sk in order to arrange other details.
-          </p>
-      </label>
-      <span>
-        <input type="radio" value="accommodation1" formControlName="accommodation" /> yes, for 1 night [+50€] (lunch, dinner and breakfast for the next day)
-      </span>
-      <span>
-        <input type="radio" value="accommodation2" formControlName="accommodation" /> yes, for 2 nights [+45€/night]
-      </span>
-      <span>
-        <input type="radio" value="accommodation3" formControlName="accommodation" /> yes, for 3 nights [+45€/night]
-      </span>
-      <span>
-        <input type="radio" value="accommodation4" formControlName="accommodation" /> yes, for 4 nights [+195€] (during the whole conference)
-      </span>
-      <span>
-        <input type="radio" value="accommodation5" formControlName="accommodation" /> no
-      </span>
-      <div *ngIf="mainFormGroup.get('accommodation').hasError('required') && mainFormGroup.get('accommodation').touched">
-        Provide Accommodation info!
-      </div>
-    </div>
-
-      <div class="form-group">
-      <label class="font-heading">
-          Banket for your companion? <span id="star">*</span>
-        <p id="note">
-            &rarr; Note: Entry for the banket 
-            (whole night - dinner and entertainment) - Sunday 22.9.2019 
-        </p>
-      </label>
-      <span>
-        <input type="radio" value="banket1" formControlName="banket" /> yes [+15€]
-      </span>
-      <span>
-        <input type="radio" value="banket2" formControlName="banket" /> no
-      </span>
-      <div *ngIf="mainFormGroup.get('banket').hasError('required') && mainFormGroup.get('banket').touched">
-        Provide Banket info!
-      </div>
-    </div>
-
-  <div class="form-group">
-    <label class="font-heading">
-    Would you like to buy another T-shirt ? 
-    <p id="note">
-        &rarr; Note: Please enter the number of T-shirts [+5€ each]. If needed state the T-shirt sizes and counts. 
-        Additional T-shirts are payed for at registration in cash.    
-      </p>
-    </label>
-    <input type="text" formControlName="shirtbuy" />
-  </div>
-
   <div class="section-heading">
       Special requests
   </div>
 
-  <div class="form-group">
+  <div class="form-group flex-col">
       <label class="font-heading">
         Do you have special requests regarding the food?
       </label>
-      <span>
-        <input type="radio" value="foodRequests1" formControlName="foodRequests" /> no
-      </span>
-      <span>
-        <input type="radio" value="foodRequests2" formControlName="foodRequests" /> vegetarian diet
-      </span>
-      <span>
-        <input type="radio" value="foodRequests3" formControlName="foodRequests" /> vegan diet
-      </span>
-      <span>
-        <input type="radio" value="foodRequests4" formControlName="foodRequests" /> gluten-free diet
-      </span>
-      <span>
-        <input type="radio" value="foodRequests5" formControlName="foodRequests" /> Other
+      <span *ngFor="let item of config.special_requests">
+        <input type="radio" [value]="item.text" formControlName="foodRequests" /> {{item.text}}
       </span>
       <div *ngIf="mainFormGroup.get('foodRequests').hasError('required') && mainFormGroup.get('foodRequests').touched">
-        Provide Food info!
+        Special Requests is a required field!
       </div>
     </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Room for your notes.
     </label>
     <input formControlName="notes">
+    </div>
   </div>
 
   <div>
     <p id="note">
-      &rarr; Note: You will recieve a confirmation email after submitting the registration form. 
-      This email contains some registration details. 
+      &rarr; Note: You will recieve a confirmation email after submitting the registration form.
+      This email contains some registration details.
       In case of any problems regarding this email, please contact us at  lubomir.antoni@upjs.sk
      </p>
     </div>
 
-  <button id="subutton" type="submit">SEND</button>
+  <input id="subutton" type="submit" value="Submit">
 
   </div>
 
