@@ -36,10 +36,13 @@
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Surname: <span id="star">*</span>
      </label>
     <input type="text" formControlName="surname" />
+    </div>
+
     <div *ngIf="mainFormGroup.get('surname').hasError('required') && mainFormGroup.get('surname').touched">
       Oops, please provide a surname!
     </div>
@@ -49,29 +52,38 @@
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Email: <span id="star">*</span>
     </label>
     <input type="text" formControlName="email" />
+    </div>
+
     <div *ngIf="(mainFormGroup.get('email').hasError('email') || mainFormGroup.get('email').hasError('required')) && mainFormGroup.get('email').touched">
       Invalid Email!
     </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Organisation: <span id="star">*</span>
     </label>
     <input type="text" formControlName="organisation" />
+    </div>
+
     <div *ngIf="mainFormGroup.get('organisation').hasError('required') && mainFormGroup.get('organisation').touched">
       Provide Organisation!
     </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Address: <span id="star">*</span>
     </label>
+    </div>
+
     <input type="text" formControlName="address" />
     <div *ngIf="mainFormGroup.get('address').hasError('required') && mainFormGroup.get('address').touched">
       Provide Address!
@@ -79,17 +91,21 @@
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Company registration number:
     </label>
     <input type="text" formControlName="crn" />
+    </div>
   </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     VAT Identification Number:
     </label>
     <input type="text" formControlName="vat" />
+    </div>
   </div>
 
   <div class="form-group">
@@ -243,13 +259,13 @@
         <input type="radio" value="m" formControlName="tshirt" /> M
       </span>
       <span>
-        <input type="radio" value="m" formControlName="tshirt" /> L
+        <input type="radio" value="l" formControlName="tshirt" /> L
       </span>
       <span>
-        <input type="radio" value="m" formControlName="tshirt" /> XL
+        <input type="radio" value="xl" formControlName="tshirt" /> XL
       </span>
       <span>
-        <input type="radio" value="m" formControlName="tshirt" /> XXL
+        <input type="radio" value="xxl" formControlName="tshirt" /> XXL
       </span>
       <div *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
         Provide T-Shirt Size!
@@ -343,6 +359,7 @@
     </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Would you like to buy another T-shirt ?
     <p id="note">
@@ -351,6 +368,7 @@
       </p>
     </label>
     <input type="text" formControlName="shirtbuy" />
+    </div>
   </div>
 
   <div class="section-heading">
@@ -382,10 +400,12 @@
     </div>
 
   <div class="form-group">
+    <div class="form-control">
     <label class="font-heading">
     Room for your notes.
     </label>
     <input formControlName="notes">
+    </div>
   </div>
 
   <div>
