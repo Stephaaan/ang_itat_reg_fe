@@ -1,7 +1,7 @@
 
 
-body { 
-    padding: 20px;     
+body {
+    padding: 20px;
     background: #E5E5E5;
 }
 
@@ -36,6 +36,14 @@ background: #C4C4C4;
 .form_group .heading {
 
 }
+.form-control{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #C4C4C4;
+  border: none;
+  height: auto !important;
+}
 .error {
     color: #f00;
     font-size: .8em;
@@ -45,14 +53,17 @@ background: #C4C4C4;
     flex-direction: column;
 }
 .flex-col {
-    
+
 }
 @media screen and (max-width: 1000px){
-
+    .form-control {
+      justify-content: space-between;
+      width: 100%;
+    }
     .message {
         font-size: 0.90rem;
     }
-    
+
     #maintitle {
         font-size: 1.50rem;
     }
@@ -63,33 +74,31 @@ background: #C4C4C4;
     .font-heading {
         font-size: 0.90rem;
     }
-    
+
     .section-heading {
         font-size: 1.20rem;
     }
     #note {
         font-size: 0.75rem;
     }
-    
+
     #redtext {
         font-size: 0.90rem;
     }
 
-    .form-control {
-        width: 250px;
-    }
-    
     .custom-select {
         width: 250px;
     }
-}  
+}
 
 @media screen and (max-width: 500px){
-
+  .form-control{
+    flex-direction: column;
+  }
     .message {
         font-size: 0.80rem;
     }
-    
+
     #maintitle {
         font-size: 1.25rem;
     }
@@ -100,14 +109,14 @@ background: #C4C4C4;
     .font-heading {
         font-size: 0.80rem;
     }
-    
+
     .section-heading {
         font-size: 1.10rem;
     }
     #note {
         font-size: 0.65rem;
     }
-    
+
     #redtext {
         font-size: 0.80rem;
     }
@@ -115,8 +124,8 @@ background: #C4C4C4;
     .form-control {
         width: 150px;
     }
-    
+
     .custom-select {
         width: 150px;
     }
-}  
+}
