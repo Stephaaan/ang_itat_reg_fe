@@ -77,6 +77,10 @@ background: #C4C4C4;
         font-size: 1.50rem;
     }
 
+    .selectext {
+        font-size: 0.80rem;
+    }
+
     .frm {
         width: 80%;
     }
@@ -122,6 +126,11 @@ background: #C4C4C4;
     .section-heading {
         font-size: 1.10rem;
     }
+
+    .selectext {
+        font-size: 0.60rem;
+    }
+
     #note {
         font-size: 0.65rem;
     }

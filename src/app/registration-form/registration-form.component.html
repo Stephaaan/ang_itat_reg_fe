@@ -154,11 +154,11 @@
       &rarr; Note: Food related question. Workshops start with dinner and end with breakfast.
       If you choose an earlier arrival or a later departure, the additional food will be priced.
   </p>
-    <select formControlName="toa">
+    <select class="selectext" formControlName="toa">
       <option *ngFor="let item of config.time_arrival" >{{item.text}}</option>
     </select>
-    <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
-      Time of Arrival is a required field!
+    <!-- <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
+      Time of Arrival is a required field! -->
     </div>
   </div>
 
@@ -171,11 +171,11 @@
     <p id="note">
         &rarr; Note: Food related question.
     </p>
-    <select formControlName="tod">
+    <select class="selectext" formControlName="tod">
       <option *ngFor="let item of config.time_departure" >{{item.text}}</option>
     </select>
-    <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
-      Time of Departure is a required field!
+    <!-- <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
+      Time of Departure is a required field! -->
     </div>
   </div>
 
@@ -217,7 +217,9 @@
     Companion: <span id="star">*</span>
       </label>
     <div *ngFor="let c of companion.controls; let i = index">
+      <div class="companionbox">
       <div class="form_group" [formGroupName]="i">
+        <div class="companiontext">
         name: <input formControlName="name">
         <div *ngIf="c.get('name').hasError('required') && c.get('name').touched">This Field is required!</div>
         from: <input formControlName="from">
@@ -225,6 +227,8 @@
         to: <input formControlName="to">
         <div *ngIf="c.get('to').hasError('required') && c.get('to').touched">This Field is required!</div>
         <button (click)="removeCompanion(i)">Delete</button>
+        </div>
+      </div>
       </div>
     </div>
 

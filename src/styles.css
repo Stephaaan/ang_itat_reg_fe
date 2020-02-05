@@ -9,12 +9,12 @@
  font-family: 'Source Sans Pro', sans-serif;
 }
 
-.message {
+#message {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.10rem;
 }
 
-#maintitle {
+.maintitle {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 2.00rem;
 }
@@ -27,6 +27,20 @@
 .section-heading {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.30rem;
+}
+
+.selectext {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.90rem;
+}
+.companionbox {
+    width: 50%;
+    margin-left: 15px;
+}
+
+.companiontext {
+    text-align: left;
+    padding: 10px;
 }
 
 #extra {
