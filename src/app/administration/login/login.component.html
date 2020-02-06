@@ -8,6 +8,7 @@
 
       <form>
         <input required #nameValidator="ngModel" name="login" [(ngModel)]="login" type="text" id="login" class="fadeIn second" placeholder="Login">
+
         <div class="invalid-feedback" [ngClass]="{visible: nameValidator.invalid && nameValidator.touched}">
                 Invalid Username.
               </div>
@@ -16,6 +17,7 @@
                 Invalid Password.
               </div>
         <button (click)="onSubmit()" [disabled]="!nameValidator.valid || !passValidator.valid" class="fadeIn fourth">Log In</button>
+
       </form>
 
     </div>

@@ -15,7 +15,6 @@ import { ViewRegistrationsComponent } from "./administration/view-registrations/
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],
