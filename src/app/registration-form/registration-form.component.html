@@ -21,92 +21,92 @@
   </div>
 
   <div class="form-group">
-      <div class="form-control">
+      <div class="form-control flex-col">
         <label class="font-heading">
           Name: <span id="star">*</span>
           </label>
-          <input type="text" formControlName="name" />
+          <input id="inputfield" type="text" formControlName="name" />
       </div>
 
-    <div *ngIf="mainFormGroup.get('name').hasError('required') && mainFormGroup.get('name').touched">
+    <div id="errortext" *ngIf="mainFormGroup.get('name').hasError('required') && mainFormGroup.get('name').touched">
       Name is a required field!
     </div>
-    <div *ngIf="(mainFormGroup.get('name').hasError('minlength') && !mainFormGroup.get('name').hasError('required')) && mainFormGroup.get('surname').touched">
+    <div id="errortext" *ngIf="(mainFormGroup.get('name').hasError('minlength') && !mainFormGroup.get('name').hasError('required')) && mainFormGroup.get('surname').touched">
       Short name
     </div>
   </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     Surname: <span id="star">*</span>
      </label>
-    <input type="text" formControlName="surname" />
+    <input id="inputfield" type="text" formControlName="surname" />
     </div>
 
-    <div *ngIf="mainFormGroup.get('surname').hasError('required') && mainFormGroup.get('surname').touched">
+    <div id="errortext" *ngIf="mainFormGroup.get('surname').hasError('required') && mainFormGroup.get('surname').touched">
       Surname is a required field!
     </div>
-    <div *ngIf="(mainFormGroup.get('surname').hasError('minlength') && !mainFormGroup.get('surname').hasError('required')) && mainFormGroup.get('surname').touched">
+    <div id="errortext" *ngIf="(mainFormGroup.get('surname').hasError('minlength') && !mainFormGroup.get('surname').hasError('required')) && mainFormGroup.get('surname').touched">
       Short name
     </div>
   </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     Email: <span id="star">*</span>
     </label>
-    <input type="text" formControlName="email" />
+    <input id="inputfield" type="text" formControlName="email" />
     </div>
 
-    <div *ngIf="(mainFormGroup.get('email').hasError('email') || mainFormGroup.get('email').hasError('required')) && mainFormGroup.get('email').touched">
+    <div id="errortext" *ngIf="(mainFormGroup.get('email').hasError('email') || mainFormGroup.get('email').hasError('required')) && mainFormGroup.get('email').touched">
       Invalid Email!
     </div>
   </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     Organisation: <span id="star">*</span>
     </label>
-    <input type="text" formControlName="organisation" />
+    <input id="inputfield" type="text" formControlName="organisation" />
     </div>
 
-    <div *ngIf="mainFormGroup.get('organisation').hasError('required') && mainFormGroup.get('organisation').touched">
+    <div id="errortext" *ngIf="mainFormGroup.get('organisation').hasError('required') && mainFormGroup.get('organisation').touched">
       Organisation is a required field!
     </div>
   </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     Address: <span id="star">*</span>
     </label>
-    <input type="text" formControlName="address" />
+    <input id="inputfield" type="text" formControlName="address" />
     </div>
 
 
-    <div *ngIf="mainFormGroup.get('address').hasError('required') && mainFormGroup.get('address').touched">
+    <div id="errortext" *ngIf="mainFormGroup.get('address').hasError('required') && mainFormGroup.get('address').touched">
       Address is a required field!
     </div>
   </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     Company registration number:
     </label>
-    <input type="text" formControlName="crn" />
+    <input id="inputfield" type="text" formControlName="crn" />
     </div>
   </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     VAT Identification Number:
     </label>
-    <input type="text" formControlName="vat" />
+    <input id="inputfield" type="text" formControlName="vat" />
     </div>
   </div>
 
@@ -128,7 +128,7 @@
     </span>
 
 
-    <div *ngIf="mainFormGroup.get('regVariant').hasError('required') && mainFormGroup.get('regVariant').touched">
+    <div id="errortext" *ngIf="mainFormGroup.get('regVariant').hasError('required') && mainFormGroup.get('regVariant').touched">
       Registration Variant is a required field!
     </div>
   </div>
@@ -140,7 +140,7 @@
     <span *ngFor="let item of config.payment_methods" >
       <input type="radio" [value]="item.text" formControlName="payment" /> {{item.text}}
     </span>
-    <div *ngIf="mainFormGroup.get('payment').hasError('required') && mainFormGroup.get('payment').touched">
+    <div id="errortext" *ngIf="mainFormGroup.get('payment').hasError('required') && mainFormGroup.get('payment').touched">
       Payment Method is a required field!
     </div>
   </div>
@@ -155,7 +155,7 @@
       &rarr; Note: Food related question. Workshops start with dinner and end with breakfast.
       If you choose an earlier arrival or a later departure, the additional food will be priced.
   </p>
-    <select formControlName="toa">
+    <select id="selectfield" formControlName="toa">
       <option *ngFor="let item of config.time_arrival" [value]="item.id">{{item.text}}</option>
     </select>
     <!-- <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
@@ -172,7 +172,7 @@
     <p id="note">
         &rarr; Note: Food related question.
     </p>
-    <select formControlName="tod">
+    <select id="selectfield" formControlName="tod">
       <option *ngFor="let item of config.time_departure" [value]="item.id">{{item.text}}</option>
     </select>
     <!-- <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
@@ -187,21 +187,21 @@
         <input type="radio" [value]="item.text" formControlName="tshirt" />  {{item.text}}
       </span>
 
-      <div *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
+      <div id="errortext" *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
         T-Shirt Size is a required field!
       </div>
     </div>
   <!-- Maybe little bit of refactor here? everything connected to single bedroom should be wrapped in one div.fom-group thnx -->
   <div class="section-heading">
       Extra payments
-      <p class="font-heading">Single Bedroom</p>
+      <!-- <p class="font-heading">Single Bedroom</p> -->
     <p id="note" *ngIf="config.singleBedroom.soldOut && hasFullRegistration" >
         {{config.singleBedroom.soldOutNote}}
     </p>
   </div>
 
   <div class="form-group" *ngIf="!config.singleBedroom.soldOut && hasFullRegistration" >
-      <label class="font-heading">
+      <label class="font-heading flex-col">
         <p id="note">
             &rarr; Note: Single Bedroom
           </p>
@@ -209,7 +209,7 @@
           <input type="checkbox" formControlName="singleBedroom">{{config.singleBedroom.text}}
 
     </div>
-    <div class="form-group">
+    <div class="form-group flex-col">
       <label class="font-heading">
         Banket
       </label>
@@ -217,7 +217,9 @@
           <input type="radio" formControlName="banket" [value]="item.id">{{item.text}}
       </span>
     </div>
+    
   <div formArrayName="companion">
+    <div class="form-group flex-col">
       <label class="font-heading">
     Companion: <span id="star">*</span>
       </label>
@@ -226,7 +228,7 @@
       <div class="form_group" [formGroupName]="i">
         <div class="companiontext">
         name: <input formControlName="name">
-        <div *ngIf="c.get('name').hasError('required') && c.get('name').touched">This Field is required!</div>
+        <div id="errortext" *ngIf="c.get('name').hasError('required') && c.get('name').touched">This Field is required!</div>
         <div class="form-group">
           <label class="font-heading">
           Time of Arrival: <span id="star">*</span>
@@ -235,10 +237,10 @@
             &rarr; Note: Food related question. Workshops start with dinner and end with breakfast.
             If you choose an earlier arrival or a later departure, the additional food will be priced.
         </p>
-          <select formControlName="from">
+          <select id="selectfield" formControlName="from">
             <option *ngFor="let item of config.time_arrival" [value]="item.id">{{item.text}}</option>
           </select>
-          <div *ngIf="c.get('from').hasError('required') && c.get('from').touched">
+          <div id="errortext" *ngIf="c.get('from').hasError('required') && c.get('from').touched">
             Time of Arrival is a required field!
           </div>
         </div>
@@ -249,10 +251,10 @@
           <p id="note">
               &rarr; Note: Food related question.
           </p>
-          <select formControlName="to">
+          <select id="selectfield" formControlName="to">
             <option *ngFor="let item of config.time_departure" [value]="item.id">{{item.text}}</option>
           </select>
-          <div *ngIf="c.get('to').hasError('required') && c.get('to').touched">
+          <div id="errortext" *ngIf="c.get('to').hasError('required') && c.get('to').touched">
             Time of Departure is a required field!
           </div>
         </div>
@@ -261,6 +263,7 @@
         </div>
       </div>
       </div>
+    </div>
     </div>
 
     <button (click)="addCompanion()">Add Companion</button>
@@ -277,17 +280,17 @@
       <span *ngFor="let item of config.special_requests">
         <input type="radio" [value]="item.text" formControlName="foodRequests" /> {{item.text}}
       </span>
-      <div *ngIf="mainFormGroup.get('foodRequests').hasError('required') && mainFormGroup.get('foodRequests').touched">
+      <div id="errortext" *ngIf="mainFormGroup.get('foodRequests').hasError('required') && mainFormGroup.get('foodRequests').touched">
         Special Requests is a required field!
       </div>
     </div>
 
   <div class="form-group">
-    <div class="form-control">
+    <div class="form-control flex-col">
     <label class="font-heading">
     Room for your notes.
     </label>
-    <input formControlName="notes">
+    <input id="inputfield" formControlName="notes">
     </div>
   </div>
 
@@ -304,5 +307,5 @@
   </div>
 
 </form>
-<!-- just for debug purposes if every shit working as expected... fooking need some love (translate: styling) -->
+<!-- just for debug purposes if every shit working as expected... fooking need some love (translate: rape) -->
 <div style="position: fixed; top: 0; left: 0">Your price: {{price}}, fullRegistration: {{hasFullRegistration}}</div>

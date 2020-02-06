@@ -65,7 +65,8 @@ export class RegistrationFormComponent implements OnInit {
   onFormValueChanges(form) {
     this.price = this.calculatePrice(form);
     this.hasFullRegistration = this.checkFullRegistration(form);
-    // if user has not full registration, reset singleBedroom checkbox value (invisibility of field in form when user has not full registration, is defined in template)
+    // if user has not full registration, reset singleBedroom checkbox value 
+    // (invisibility of field in form when user has not full registration, is defined in template)
     if (!this.hasFullRegistration) {
       this.mainFormGroup.controls.singleBedroom.value = false;
     }
@@ -80,7 +81,8 @@ export class RegistrationFormComponent implements OnInit {
     return false;
   }
   calculatePrice(form) {
-    // default reset price to zero and then checks every field which has impact to price and add his price to the final price
+    // default reset price to zero and then checks every field which has impact to price and 
+    // add his price to the final price
     let price = 0;
     if (form.regVariant) {
       price += this.config.registration_variants.find(variant => variant.id === form.regVariant).price || 0;

@@ -102,6 +102,19 @@ background: #C4C4C4;
     .custom-select {
         width: 250px;
     }
+    #inputfield {
+        width: 250px;
+    }
+    
+    #errortext {
+        font-size: 0.75rem;
+        color: red;
+    }
+    #selectfield {
+        width: 250px;
+        font-size: 0.85rem;
+    }
+    
 }
 
 @media screen and (max-width: 500px){
@@ -146,4 +159,17 @@ background: #C4C4C4;
     .custom-select {
         width: 150px;
     }
+    #inputfield {
+        width: 150px;
+    }
+    
+    #errortext {
+        font-size: 0.65rem;
+        color: red;
+    }
+    #selectfield {
+        width: 150px;
+        font-size: 0.65rem;
+    }
+    
 }

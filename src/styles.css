@@ -74,6 +74,7 @@
 
 .form-control {
     width: 300px;
+
 }
 
 .other-control {
@@ -82,5 +83,17 @@
 
 .custom-select {
     width: 300px;
+}
+
+#inputfield {
+    width: 250px;
+}
+#selectfield {
+    width: 250px;
+    font-size: 0.95rem;
+}
+#errortext {
+    font-size: 0.85rem;
+    color: red;
 }
 
