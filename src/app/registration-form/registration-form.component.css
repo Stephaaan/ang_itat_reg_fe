@@ -1,0 +1,140 @@
+
+
+body {
+    padding: 20px;
+    background: #E5E5E5;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+    background: #EAEAEA;
+}
+
+.frm {
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    background: #E5E5E5;
+}
+
+.midsection {
+    padding: 20px;
+    top: 20px;
+
+background: #C4C4C4;
+}
+
+.form_group {
+    background: #FFFFFF;
+    border: 1px solid #BEBEBE;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+.form_group .heading {
+
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-control{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #C4C4C4;
+  border: none;
+  height: auto !important;
+}
+.error {
+    color: #f00;
+    font-size: .8em;
+}
+.form-control-radio{
+    display: flex;
+    flex-direction: column;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+#subutton{
+  width: 80px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px){
+    .form-control {
+      justify-content: space-between;
+      width: 100%;
+    }
+    .message {
+        font-size: 0.90rem;
+    }
+
+    #maintitle {
+        font-size: 1.50rem;
+    }
+
+    .frm {
+        width: 80%;
+    }
+    .font-heading {
+        font-size: 0.90rem;
+    }
+
+    .section-heading {
+        font-size: 1.20rem;
+    }
+    #note {
+        font-size: 0.75rem;
+    }
+
+    #redtext {
+        font-size: 0.90rem;
+    }
+
+    .custom-select {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 500px){
+  .form-control{
+    flex-direction: column;
+  }
+    .message {
+        font-size: 0.80rem;
+    }
+
+    #maintitle {
+        font-size: 1.25rem;
+    }
+
+    .frm {
+        width: 90%;
+    }
+    .font-heading {
+        font-size: 0.80rem;
+    }
+
+    .section-heading {
+        font-size: 1.10rem;
+    }
+    #note {
+        font-size: 0.65rem;
+    }
+
+    #redtext {
+        font-size: 0.80rem;
+    }
+
+    .form-control {
+        width: 150px;
+    }
+
+    .custom-select {
+        width: 150px;
+    }
+}

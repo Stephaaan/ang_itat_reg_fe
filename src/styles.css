@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lato:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Source+Sans+Pro&display=swap');
+
+* {
+ margin: 0;
+ padding: 0;
+ font-family: 'Source Sans Pro', sans-serif;
+}
+
+.message {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.10rem;
+}
+
+#maintitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2.00rem;
+}
+
+.font-heading {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.10rem;
+}
+
+.section-heading {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.30rem;
+}
+
+#extra {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.10rem;
+}
+
+#note {
+    font-size: 0.85rem;
+}
+
+#subutton {
+    background: #37873B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+#redtext, #star {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.10rem;
+    color: red;
+}
+
+.form_group {
+    background: #FFFFFF;
+    border: 1px solid #BEBEBE;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 300px;
+}
+
+.other-control {
+
+}
+
+.custom-select {
+    width: 300px;
+}
+
