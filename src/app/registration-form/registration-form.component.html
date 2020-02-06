@@ -5,6 +5,7 @@
 <div class="form-group">
         <label class="maintitle">Registration for ITAT 2020</label>
         <!-- change to current dates -->
+
         <p id="message">
           (20. 9. 2020 - 24. 9. 2020).
         </p>
@@ -123,7 +124,7 @@
       </p>
     </span>
     <span *ngFor="let item of config.registration_variants" >
-      <input type="radio" [value]="item.text" formControlName="regVariant" /> {{item.text}}
+      <input type="radio" [value]="item.id" formControlName="regVariant" /> {{item.text}}
     </span>
 
 
@@ -155,7 +156,7 @@
       If you choose an earlier arrival or a later departure, the additional food will be priced.
   </p>
     <select formControlName="toa">
-      <option *ngFor="let item of config.time_arrival" >{{item.text}}</option>
+      <option *ngFor="let item of config.time_arrival" [value]="item.id">{{item.text}}</option>
     </select>
     <div *ngIf="mainFormGroup.get('toa').hasError('required') && mainFormGroup.get('toa').touched">
       Time of Arrival is a required field!
@@ -172,7 +173,7 @@
         &rarr; Note: Food related question.
     </p>
     <select formControlName="tod">
-      <option *ngFor="let item of config.time_departure" >{{item.text}}</option>
+      <option *ngFor="let item of config.time_departure" [value]="item.id">{{item.text}}</option>
     </select>
     <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
       Time of Departure is a required field!
@@ -184,34 +185,39 @@
       T-Shirt Size: <span id="star">*</span>
     </label>
       <span *ngFor="let item of config.tshirt_size" >
-        <input type="radio" (value)="item.text" formControlName="tshirt" />  {{item.text}}
+        <input type="radio" [value]="item.text" formControlName="tshirt" />  {{item.text}}
       </span>
 
       <div *ngIf="mainFormGroup.get('tshirt').hasError('required') && mainFormGroup.get('tshirt').touched">
         T-Shirt Size is a required field!
       </div>
     </div>
-
+  <!-- Maybe little bit of refactor here? everything connected to single bedroom should be wrapped in one div.fom-group thnx -->
   <div class="section-heading">
       Extra payments
-    <p id="note">
-        &rarr; Note: The single-bed rooms are sold out now. In case of serious interest,
-        we can reserve accommodation in a single room in the cottage Martinské hole.
+      <p class="font-heading">Single Bedroom</p>
+    <p id="note" *ngIf="config.singleBedroom.soldOut && hasFullRegistration" >
+        {{config.singleBedroom.soldOutNote}}
     </p>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" *ngIf="!config.singleBedroom.soldOut && hasFullRegistration" >
       <label class="font-heading">
-        Extra payments
         <p id="note">
             &rarr; Note: Single Bedroom
           </p>
       </label>
-      <span *ngFor="let item of config.extra_payments" >
-          <input type="checkbox" formControlName="singleBedroom">{{item.text}}
+          <input type="checkbox" formControlName="singleBedroom">{{config.singleBedroom.text}}
+
+    </div>
+    <div class="form-group">
+      <label class="font-heading">
+        Banket
+      </label>
+      <span *ngFor="let item of config.banket" >
+          <input type="radio" formControlName="banket" [value]="item.id">{{item.text}}
       </span>
     </div>
-
   <div formArrayName="companion">
       <label class="font-heading">
     Companion: <span id="star">*</span>
@@ -220,9 +226,35 @@
       <div class="form_group" [formGroupName]="i">
         name: <input formControlName="name">
         <div *ngIf="c.get('name').hasError('required') && c.get('name').touched">This Field is required!</div>
-        from: <input formControlName="from">
-        <div *ngIf="c.get('from').hasError('required') && c.get('from').touched">This Field is required!</div>
-        to: <input formControlName="to">
+        <div class="form-group">
+          <label class="font-heading">
+          Time of Arrival: <span id="star">*</span>
+        </label>
+        <p id="note">
+            &rarr; Note: Food related question. Workshops start with dinner and end with breakfast.
+            If you choose an earlier arrival or a later departure, the additional food will be priced.
+        </p>
+          <select formControlName="from">
+            <option *ngFor="let item of config.time_arrival" [value]="item.id">{{item.text}}</option>
+          </select>
+          <div *ngIf="c.get('from').hasError('required') && c.get('from').touched">
+            Time of Arrival is a required field!
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-heading">
+          Time of Departure: <span id="star">*</span>
+          </label>
+          <p id="note">
+              &rarr; Note: Food related question.
+          </p>
+          <select formControlName="to">
+            <option *ngFor="let item of config.time_departure" [value]="item.id">{{item.text}}</option>
+          </select>
+          <div *ngIf="c.get('to').hasError('required') && c.get('to').touched">
+            Time of Departure is a required field!
+          </div>
+        </div>
         <div *ngIf="c.get('to').hasError('required') && c.get('to').touched">This Field is required!</div>
         <button (click)="removeCompanion(i)">Delete</button>
       </div>
@@ -264,8 +296,10 @@
      </p>
     </div>
 
-  <input id="subutton" type="submit" value="Submit">
+  <input id="subutton" type="submit" value="Submit" [disabled]="!mainFormGroup.valid">
 
   </div>
 
 </form>
+<!-- just for debug purposes if every shit working as expected... fooking need some love (translate: styling) -->
+<div style="position: fixed; top: 0; left: 0">Your price: {{price}}, fullRegistration: {{hasFullRegistration}}</div>
