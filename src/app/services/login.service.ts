@@ -1,3 +1,4 @@
+
 import { AuthService } from './auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, tap } from 'rxjs/operators';
@@ -8,10 +9,12 @@ import { sha256 } from 'js-sha256';
 import { Observable, empty } from 'rxjs';
 import { stringify } from 'querystring';
 import { Router } from '@angular/router';
+
 @Injectable({
     providedIn: 'root',
 })
 export class LoginService {
+
   constructor(private http: HttpClient, private toastr: ToastrService, private auth: AuthService, private router: Router) {}
   login (username: string, password: string) {
     return this.http.post(BACKEND_URL + ENDPOINTS.LOGIN, {
@@ -40,3 +43,4 @@ export class LoginService {
     return empty();
   }
 }
+
