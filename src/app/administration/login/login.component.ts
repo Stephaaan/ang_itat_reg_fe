@@ -1,4 +1,3 @@
-
 import { LoginService } from './../../services/login.service';
 import { LoginState } from './../../../models/Login.model';
 import { UserService } from './../../../services/user.service';
@@ -12,15 +11,14 @@ import { AuthService } from 'src/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   private login: string;
   private password: string;
 
-  constructor(private auth: AuthService, private userService: UserService, private toastr: ToastrService, private router: Router) { }
+  constructor(private auth: AuthService, private loginService: LoginService, private toastr: ToastrService, private router: Router) { }
 
   onSubmit() {
     this.loginService.login(this.login, this.password).subscribe(response => console.log(response));
   }
 }
-
