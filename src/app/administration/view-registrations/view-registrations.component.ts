@@ -1,3 +1,4 @@
+import { RegistrationsService } from './../../services/registrations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-registrations.component.css']
 })
 export class ViewRegistrationsComponent implements OnInit {
-
-  constructor() { }
+  formData: FormData[] | null = null;
+  constructor(private registrations: RegistrationsService) { }
 
   ngOnInit() {
+    this.registrations.getAllRegistrations().subscribe(registrations => this.formData = registrations);
   }
 
 }

@@ -1,11 +1,11 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
-  
+
       <div class="fadeIn first">
         <h3>ITAT Registration</h3>
         <img src="assets/icons/UserIcon.png" id="icon" alt="lol" />
       </div>
-  
+
       <form>
         <input required #nameValidator="ngModel" name="login" [(ngModel)]="login" type="text" id="login" class="fadeIn second" placeholder="Login">
         <div class="invalid-feedback" [ngClass]="{visible: nameValidator.invalid && nameValidator.touched}">
@@ -15,8 +15,8 @@
         <div class="invalid-feedback" [ngClass]="{visible: passValidator.invalid && passValidator.touched}">
                 Invalid Password.
               </div>
-        <input type="submit" [disabled]="!nameValidator.valid || !passValidator.valid" class="fadeIn fourth" value="Log In">
+        <button (click)="onSubmit()" [disabled]="!nameValidator.valid || !passValidator.valid" class="fadeIn fourth">Log In</button>
       </form>
-  
+
     </div>
   </div>
