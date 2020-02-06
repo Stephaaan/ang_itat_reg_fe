@@ -5,6 +5,7 @@ export const ENDPOINTS = {
     CONFIG: 'config',
     LOGIN: 'administration/login',
     IS_AUTHENTICATED: 'administration/isAuthenticated',
-    GET_REGISTRATIONS: 'administration/registrations'
+    GET_REGISTRATIONS: 'administration/registrations',
+    REGISTER: 'register'
 }
 

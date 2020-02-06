@@ -1,3 +1,4 @@
+import { RegistrationsService } from './../services/registrations.service';
 import { Config } from './../entities/Config.model';
 import { ConfigService } from './../services/config.service';
 
@@ -19,7 +20,7 @@ export class RegistrationFormComponent implements OnInit {
   private price = 0;
   private hasFullRegistration = false;
 
-  constructor(private fb: FormBuilder, private configService: ConfigService) {
+  constructor(private fb: FormBuilder, private configService: ConfigService, private registration: RegistrationsService) {
     this.mainFormGroup = this.fb.group({
       name: this.setupTextFormControl(),
       surname: this.setupTextFormControl(),
@@ -43,6 +44,29 @@ export class RegistrationFormComponent implements OnInit {
     this.mainFormGroup.valueChanges.subscribe(form => this.onFormValueChanges(form));
 
   }
+  onSubmit() {
+    console.log(this.mainFormGroup)
+    this.formData.name = this.mainFormGroup.value.name;
+    this.formData.surname = this.mainFormGroup.value.surname;
+    this.formData.email = this.mainFormGroup.value.email;
+    this.formData.organisation = this.mainFormGroup.value.organisation;
+    this.formData.address = this.mainFormGroup.value.address;
+    this.formData.crn = this.mainFormGroup.value.crn;
+    this.formData.vat = this.mainFormGroup.value.vat;
+    this.formData.regvariant = this.mainFormGroup.value.regVariant;
+    this.formData.paymethod = this.mainFormGroup.value.payment;
+    this.formData.timearrival = this.config.time_arrival.find(item => item.id === +this.mainFormGroup.value.toa).text || "";
+    this.formData.timedeparture = this.config.time_departure.find(item => item.id === +this.mainFormGroup.value.tod).text || "";
+    this.formData.shirtsize = this.mainFormGroup.value.tshirt;
+    this.formData.singleBedroom = this.mainFormGroup.value.singleBedroom;
+    this.formData.foodreq = this.mainFormGroup.value.foodRequests;
+    this.formData.banket = this.config.banket.find(item => item.id === this.mainFormGroup.value.banket).text;
+    this.formData.notesroom = this.mainFormGroup.value.notes;
+    this.formData.accommodation = this.mainFormGroup.value.companion.map(c => ({from: this.config.time_arrival.find(item => item.id === +c.from).text|| "", to: this.config.time_departure.find(item => item.id === +c.to).text || "", name: c.name}))
+    console.log(this.formData)
+    this.registration.register(this.formData).subscribe(response => console.log(response));
+
+  }
   setupTextFormControl() {
     return ["", [Validators.required, Validators.minLength(3)]]
   }
@@ -63,13 +87,11 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.configService.getConfig().subscribe(config => this.config = config);
   }
-  onSubmit() {
-    console.log(this.mainFormGroup);
-  }
+
   onFormValueChanges(form) {
     this.price = this.calculatePrice(form);
     this.hasFullRegistration = this.checkFullRegistration(form);
-    // if user has not full registration, reset singleBedroom checkbox value 
+    // if user has not full registration, reset singleBedroom checkbox value
     // (invisibility of field in form when user has not full registration, is defined in template)
     if (!this.hasFullRegistration) {
       this.mainFormGroup.controls.singleBedroom.value = false;
@@ -85,7 +107,7 @@ export class RegistrationFormComponent implements OnInit {
     return false;
   }
   calculatePrice(form) {
-    // default reset price to zero and then checks every field which has impact to price and 
+    // default reset price to zero and then checks every field which has impact to price and
     // add his price to the final price
     let price = 0;
     if (form.regVariant) {

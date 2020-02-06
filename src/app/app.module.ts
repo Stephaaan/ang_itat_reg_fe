@@ -14,6 +14,8 @@ import { RegistrationFormComponent } from "./registration-form/registration-form
 import { LoginComponent } from "./administration/login/login.component";
 import { ViewRegistrationsComponent } from "./administration/view-registrations/view-registrations.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { DisplayAccomodationPipe } from './display-accomodation.pipe';
+import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     AppComponent,
     RegistrationFormComponent,
     LoginComponent,
-    ViewRegistrationsComponent
+    ViewRegistrationsComponent,
+    DisplayAccomodationPipe,
+    RegistrationSuccessComponent
   ],
   imports: [
     HttpClientModule,

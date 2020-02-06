@@ -1,37 +1,41 @@
+
 export class FormData {
-  private name: string;
+  public _id: any;
+  public name: string;
 
-  private surname: string;
+  public surname: string;
 
-  private email: string;
+  public email: string;
 
-  private address: string;
+  public organisation: string;
 
-  private crn: string;
+  public address: string;
 
-  private vat: string;
+  public crn: string;
 
-  private regvariant: string;
+  public vat: string;
 
-  private paymethod: string;
+  public regvariant: string;
 
-  private timearrival: string;
+  public paymethod: string;
 
-  private timedeparture: string;
+  public timearrival: string;
 
-  private shirtsize: string;
+  public timedeparture: string;
 
-  private extrapay: string;
+  public shirtsize: string;
 
-  private accommodation: string;
+  public singleBedroom: string;
 
-  private banket: string;
+  public accommodation: {from: string; to: string; name: string}[];
 
-  //private shirtbuy: string;
+  public banket: string;
 
-  private foodreq: string;
+  //public shirtbuy: string;
 
-  private notesroom: string;
+  public foodreq: string;
 
-  private price: number;
+  public notesroom: string;
+
+  public price: number;
 }

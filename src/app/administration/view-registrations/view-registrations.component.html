@@ -9,7 +9,7 @@
       <th scope="col">Email</th>
       <th scope="col">Organisation</th>
       <th scope="col">Address</th>
-      <th scope="col">Company</th>
+      <!--<th scope="col">Company</th> -->
       <th scope="col">CRN</th>
       <th scope="col">VAT</th>
 
@@ -20,32 +20,34 @@
       <th scope="col">T-Shirt Size</th>
 
       <th scope="col">Single Bedroom</th>
-      <th scope="col">Companion:</th>
       <th scope="col">Accommodation</th>
       <th scope="col">Banket</th>
 
       <th scope="col">Food</th>
       <th scope="col">Notes</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of formData" >
-      <th>item.name</th>
-      <th>item.surname</th>
-      <th>item.email</th>
-      <th>item.address</th>
-      <th>item.crn</th>
-      <th>item.vat</th>
-      <th>item.regvariant</th>
-      <th>item.paymentmethod</th>
-      <th>item.timearrival</th>
-      <th>item.timedeparture</th>
-      <th>item.shirtsize</th>
-      <th>item.extrapay</th>
-      <th>item.accomodation</th>
-      <th>item.banket</th>
-      <th>item.foodreq</th>
-      <th>item.notesroom</th>
+      <th>{{item.name}}</th>
+      <th>{{item.surname}}</th>
+      <th>{{item.email}}</th>
+      <th>{{item.organisation}}</th>
+      <th>{{item.address}}</th>
+      <th>{{item.crn}}</th>
+      <th>{{item.vat}}</th>
+      <th>{{item.regvariant}}</th>
+      <th>{{item.paymethod}}</th>
+      <th>{{item.timearrival}}</th>
+      <th>{{item.timedeparture}}</th>
+      <th>{{item.shirtsize}}</th>
+      <th>{{item.singleBedroom}}</th>
+      <th><pre>{{item.accommodation | displayAccomodation}}</pre></th>
+      <th>{{item.banket}}</th>
+      <th>{{item.foodreq}}</th>
+      <th>{{item.notesroom}}</th>
+      <th><button (click)="deleteItem(item._id)" class="btn btn-danger">Delete</button></th>
     </tr>
   </tbody>
 </table>
