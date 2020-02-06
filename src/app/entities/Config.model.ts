@@ -1,5 +1,7 @@
 export interface Config {
   year: number;
+  startDate: string;
+  endDate: string;
   registration_variants: RegistrationVariant[];
   payment_methods: PaymentMethod[];
   time_arrival: TimeArrival[];

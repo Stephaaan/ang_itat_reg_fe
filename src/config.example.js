@@ -1,6 +1,7 @@
 export const config = {
   "year": 2020,
-
+  "startDate": "20.1.2021",
+  "endDate": "When CoronaVirus kills everyone",
   "registration_variants": [
     {
       "id":1,
