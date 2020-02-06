@@ -1,18 +1,21 @@
 import { Config } from './../entities/Config.model';
 import { ConfigService } from './../services/config.service';
+
 import { Component, OnInit, } from '@angular/core';
+
 import { FormData } from '../entities/FormData.model';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-registration-form',
-  templateUrl: './registration-form.component.html',
-  styleUrls: ['./registration-form.component.css']
+  selector: "app-registration-form",
+  templateUrl: "./registration-form.component.html",
+  styleUrls: ["./registration-form.component.css"]
 })
 export class RegistrationFormComponent implements OnInit {
   private formData = new FormData();
   private mainFormGroup;
   private config: Config | null = null;
+
   private price = 0;
   private hasFullRegistration = false;
 
@@ -38,6 +41,7 @@ export class RegistrationFormComponent implements OnInit {
 
     })
     this.mainFormGroup.valueChanges.subscribe(form => this.onFormValueChanges(form));
+
   }
   setupTextFormControl() {
     return ["", [Validators.required, Validators.minLength(3)]]

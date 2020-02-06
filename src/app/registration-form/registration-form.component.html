@@ -5,7 +5,9 @@
 <div class="form-group">
         <label class="maintitle">Registration for ITAT 2020</label>
         <!-- change to current dates -->
+
         <!-- config.startDate, config.endDate-->
+
         <p id="message">
           (20. 9. 2020 - 24. 9. 2020).
         </p>
@@ -140,6 +142,7 @@
     <span *ngFor="let item of config.payment_methods" >
       <input type="radio" [value]="item.text" formControlName="payment" /> {{item.text}}
     </span>
+
     <div id="errortext" *ngIf="mainFormGroup.get('payment').hasError('required') && mainFormGroup.get('payment').touched">
       Payment Method is a required field!
     </div>
@@ -162,7 +165,6 @@
       Time of Arrival is a required field! -->
     </div>
 
-
 <!-- Change parameters to current values -->
 
   <div class="form-group">
@@ -178,6 +180,7 @@
     <!-- <div *ngIf="mainFormGroup.get('tod').hasError('required') && mainFormGroup.get('tod').touched">
       Time of Departure is a required field! -->
     </div>
+
 
   <div class="form-group flex-col">
       <label class="font-heading">
@@ -304,8 +307,10 @@
 
   <input id="subutton" type="submit" value="Submit" [disabled]="!mainFormGroup.valid">
 
+
   </div>
 
 </form>
 <!-- just for debug purposes if every shit working as expected... fooking need some love (translate: rape) -->
 <div style="position: fixed; top: 0; left: 0">Your price: {{price}}, fullRegistration: {{hasFullRegistration}}</div>
+

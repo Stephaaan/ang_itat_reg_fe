@@ -10,11 +10,13 @@
 }
 
 #message {
+
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.10rem;
 }
 
 .maintitle {
+
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 2.00rem;
 }
@@ -42,6 +44,7 @@
     text-align: left;
     padding: 10px;
 }
+
 
 #extra {
     font-family: 'Roboto Condensed', sans-serif;

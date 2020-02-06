@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+
 import { ToastrModule } from "ngx-toastr";
 
 import { HttpClientModule }    from '@angular/common/http';
@@ -13,7 +14,6 @@ import { RegistrationFormComponent } from "./registration-form/registration-form
 import { LoginComponent } from "./administration/login/login.component";
 import { ViewRegistrationsComponent } from "./administration/view-registrations/view-registrations.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],

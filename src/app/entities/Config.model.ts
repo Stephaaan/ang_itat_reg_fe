@@ -33,6 +33,7 @@ export interface TShirtSize {
   text: string;
 }
 export interface ExtraPayment {
+
   soldOut: boolean;
   soldOutNote: string;
   text: string;

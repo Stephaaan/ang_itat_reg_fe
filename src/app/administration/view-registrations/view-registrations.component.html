@@ -1,1 +1,51 @@
-<p>view-registrations works!</p>
+<div style="display: flex; justify-content: flex-end; margin-bottom: 2px;" class="thead-dark">
+  <button class="btn-info">Log Out</button>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Organisation</th>
+      <th scope="col">Address</th>
+      <th scope="col">Company</th>
+      <th scope="col">CRN</th>
+      <th scope="col">VAT</th>
+
+      <th scope="col">Registration Variant</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Arrival</th>
+      <th scope="col">Departure</th>
+      <th scope="col">T-Shirt Size</th>
+
+      <th scope="col">Single Bedroom</th>
+      <th scope="col">Companion:</th>
+      <th scope="col">Accommodation</th>
+      <th scope="col">Banket</th>
+
+      <th scope="col">Food</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of formData" >
+      <th>item.name</th>
+      <th>item.surname</th>
+      <th>item.email</th>
+      <th>item.address</th>
+      <th>item.crn</th>
+      <th>item.vat</th>
+      <th>item.regvariant</th>
+      <th>item.paymentmethod</th>
+      <th>item.timearrival</th>
+      <th>item.timedeparture</th>
+      <th>item.shirtsize</th>
+      <th>item.extrapay</th>
+      <th>item.accomodation</th>
+      <th>item.banket</th>
+      <th>item.foodreq</th>
+      <th>item.notesroom</th>
+    </tr>
+  </tbody>
+</table>
