@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { RegistrationsService } from './../services/registrations.service';
 import { Config } from './../entities/Config.model';
 import { ConfigService } from './../services/config.service';
@@ -8,19 +9,23 @@ import { FormData } from '../entities/FormData.model';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 
 @Component({
-  selector: "app-registration-form",
-  templateUrl: "./registration-form.component.html",
-  styleUrls: ["./registration-form.component.css"]
+  selector: 'app-registration-form',
+  templateUrl: './registration-form.component.html',
+  styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
   private formData = new FormData();
-  private mainFormGroup;
-  private config: Config | null = null;
+  public mainFormGroup;
+  public config: Config | null = null;
 
-  private price = 0;
-  private hasFullRegistration = false;
+  public price = 0;
+  public hasFullRegistration = false;
 
-  constructor(private fb: FormBuilder, private configService: ConfigService, private registration: RegistrationsService) {
+  constructor(
+    private fb: FormBuilder,
+    private configService: ConfigService,
+    private registration: RegistrationsService,
+    private router: Router) {
     this.mainFormGroup = this.fb.group({
       name: this.setupTextFormControl(),
       surname: this.setupTextFormControl(),
@@ -38,14 +43,15 @@ export class RegistrationFormComponent implements OnInit {
       foodRequests: [''],
       banket: [],
       notes: [''],
-      companion: this.fb.array([])
+      companion: this.fb.array([]),
+      prefferedCompanion: ['']
 
-    })
+    });
     this.mainFormGroup.valueChanges.subscribe(form => this.onFormValueChanges(form));
 
   }
   onSubmit() {
-    console.log(this.mainFormGroup)
+    console.log(this.mainFormGroup);
     this.formData.name = this.mainFormGroup.value.name;
     this.formData.surname = this.mainFormGroup.value.surname;
     this.formData.email = this.mainFormGroup.value.email;
@@ -53,25 +59,44 @@ export class RegistrationFormComponent implements OnInit {
     this.formData.address = this.mainFormGroup.value.address;
     this.formData.crn = this.mainFormGroup.value.crn;
     this.formData.vat = this.mainFormGroup.value.vat;
-    this.formData.regvariant = this.mainFormGroup.value.regVariant;
+    this.formData.regvariant = this.config.registration_variants.find(item => item.id === this.mainFormGroup.value.regVariant).text;
     this.formData.paymethod = this.mainFormGroup.value.payment;
-    this.formData.timearrival = this.config.time_arrival.find(item => item.id === +this.mainFormGroup.value.toa).text || "";
-    this.formData.timedeparture = this.config.time_departure.find(item => item.id === +this.mainFormGroup.value.tod).text || "";
     this.formData.shirtsize = this.mainFormGroup.value.tshirt;
-    this.formData.singleBedroom = this.mainFormGroup.value.singleBedroom;
+    this.formData.singleBedroom = this.mainFormGroup.value.singleBedroom ? 'yes' : 'no';
     this.formData.foodreq = this.mainFormGroup.value.foodRequests;
-    this.formData.banket = this.config.banket.find(item => item.id === this.mainFormGroup.value.banket).text;
     this.formData.notesroom = this.mainFormGroup.value.notes;
-    this.formData.accommodation = this.mainFormGroup.value.companion.map(c => ({from: this.config.time_arrival.find(item => item.id === +c.from).text|| "", to: this.config.time_departure.find(item => item.id === +c.to).text || "", name: c.name}))
-    console.log(this.formData)
-    this.registration.register(this.formData).subscribe(response => console.log(response));
+    this.formData.prefferedCompanion = this.mainFormGroup.value.prefferedCompanion;
+    this.formData.accommodation = this.mainFormGroup.value.companion.map(c =>
+      ({
+        from: this.config.time_arrival.find(item => item.id === +c.from).text || '',
+        to: this.config.time_departure.find(item => item.id === +c.to).text || '', name: c.name
+      }));
+    const timeOfArrivalControl = this.config.time_arrival.find(item => item.id === +this.mainFormGroup.value.toa);
+    const timeOfDepartureControl = this.config.time_departure.find(item => item.id === +this.mainFormGroup.value.tod);
+    const banketControl = this.config.banket.find(item => item.id === this.mainFormGroup.value.banket);
+
+    this.formData.timearrival = timeOfArrivalControl ? timeOfArrivalControl.text : '';
+    this.formData.timedeparture = timeOfDepartureControl ? timeOfArrivalControl.text : '';
+    this.formData.banket = banketControl ? banketControl.text : '';
+    this.formData.price = this.price;
+    console.log(this.formData);
+    // plz put it to register observable
+    // tslint:disable-next-line: max-line-length
+    // formdata registration variant broken need to pass text instead of id, single bedroom checkbox broken, need to pass string instead of boolean
+    this.router.navigate(['/registration-success'], {
+      // pass somehow data: data:
+    });
+
+    this.registration.register(this.formData).subscribe(response => {
+
+    });
 
   }
   setupTextFormControl() {
-    return ["", [Validators.required, Validators.minLength(3)]]
+    return ['', [Validators.required, Validators.minLength(3)]];
   }
-  get companion(){
-    return this.mainFormGroup.get('companion') as FormArray
+  get companion() {
+    return this.mainFormGroup.get('companion') as FormArray;
   }
   addCompanion() {
     // just push new formgroup to the form array (rendering in for loop in template)
@@ -97,10 +122,10 @@ export class RegistrationFormComponent implements OnInit {
       this.mainFormGroup.controls.singleBedroom.value = false;
     }
   }
-  checkFullRegistration (form) {
+  checkFullRegistration(form) {
     // get selected variant
     const selectedVariant = this.config.registration_variants.find(item => item.id === form.regVariant);
-    if (selectedVariant){
+    if (selectedVariant) {
       // return value of full registration field of variant
       return selectedVariant.full_registration;
     }

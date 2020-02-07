@@ -1,6 +1,6 @@
 
 export class FormData {
-  public _id: any;
+  public _id?: any;
   public name: string;
 
   public surname: string;
@@ -26,12 +26,12 @@ export class FormData {
   public shirtsize: string;
 
   public singleBedroom: string;
-
+  public prefferedCompanion: string;
   public accommodation: {from: string; to: string; name: string}[];
 
   public banket: string;
 
-  //public shirtbuy: string;
+  // public shirtbuy: string;
 
   public foodreq: string;
 

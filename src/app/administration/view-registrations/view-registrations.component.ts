@@ -16,8 +16,13 @@ export class ViewRegistrationsComponent implements OnInit {
   }
   deleteItem(id: string){
     this.registrations.deleteRegistration(id).subscribe(() => {
-      this.registrations.getAllRegistrations().subscribe(registrations => {this.formData = registrations; this.toastr.success("Registration has been deleted", "Success")});
-    })
+      this.registrations
+        .getAllRegistrations()
+        .subscribe(registrations => {
+          this.formData = registrations;
+          this.toastr.success('Registration has been deleted', 'Success')}
+        );
+    });
   }
 
 }

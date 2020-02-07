@@ -1,1 +1,88 @@
-<p>registration-success works!</p>
+<div class="reg-success-wrapper">
+  <div class="reg-success-header">
+    <h1>ITAT Registration</h1>
+    <h3>Thank you for your registration</h3>
+    <p>Registration Details</p>
+  </div>
+  <div class="reg-success-body">
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Name: </div>
+      <div class="reg-success-field-val">{{formData.name}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Surname: </div>
+      <div class="reg-success-field-val">{{formData.surname}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Email: </div>
+      <div class="reg-success-field-val">{{formData.email}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Organisation: </div>
+      <div class="reg-success-field-val">{{formData.organisation}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Address: </div>
+      <div class="reg-success-field-val">{{formData.address}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Company Registration Number: </div>
+      <div class="reg-success-field-val">{{formData.crn}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">VAT Number: </div>
+      <div class="reg-success-field-val">{{formData.vat}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Registration Variant: </div>
+      <div class="reg-success-field-val">{{formData.regvariant}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Time of Arrival: </div>
+      <div class="reg-success-field-val">{{formData.timearrival}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Time of Departure: </div>
+      <div class="reg-success-field-val">{{formData.timedeparture}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Payment Method: </div>
+      <div class="reg-success-field-val">{{formData.paymethod}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">T-Shirt size: </div>
+      <div class="reg-success-field-val">{{formData.shirtsize}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Single bedroom: </div>
+      <div class="reg-success-field-val">{{formData.singleBedroom}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Preffered Companion (spolubyvajuci): </div>
+      <div class="reg-success-field-val">{{formData.prefferedCompanion}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Banket: </div>
+      <div class="reg-success-field-val">{{formData.banket}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Food Request: </div>
+      <div class="reg-success-field-val">{{formData.foodreq}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Notes: </div>
+      <div class="reg-success-field-val">{{formData.notesroom}}</div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Accomodation: </div>
+      <div class="reg-success-field-val"><pre>{{formData.accommodation | displayAccomodation}}</pre></div>
+    </div>
+    <div class="reg-success-field">
+      <div class="reg-success-field-name">Price: </div>
+      <div class="reg-success-field-val">{{formData.price}}E</div>
+    </div>
+  </div>
+  <div class="reg-success-footer">
+    <p>In case of any questions please contact /*Some Name*/ on /*Some Contact*/
+  </div>
+</div>

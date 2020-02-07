@@ -1,17 +1,17 @@
+<div class="header">
+  <label class="maintitle">Registration for ITAT 2020</label>
+  <!-- change to current dates -->
+
+  <!-- config.startDate, config.endDate-->
+
+  <p id="message">
+    (20. 9. 2020 - 24. 9. 2020).
+  </p>
+</div>
+
 <form class="frm" [formGroup]="mainFormGroup" *ngIf="config" (ngSubmit)="onSubmit()">
 
   <div class="midsection">
-
-<div class="form-group">
-        <label class="maintitle">Registration for ITAT 2020</label>
-        <!-- change to current dates -->
-
-        <!-- config.startDate, config.endDate-->
-
-        <p id="message">
-          (20. 9. 2020 - 24. 9. 2020).
-        </p>
-    </div>
 
 <!-- place for hotel info, if there is one -->
 
@@ -220,7 +220,7 @@
           <input type="radio" formControlName="banket" [value]="item.id">{{item.text}}
       </span>
     </div>
-    
+
   <div formArrayName="companion">
     <div class="form-group flex-col">
       <label class="font-heading">
@@ -230,16 +230,15 @@
       <div class="companionbox">
       <div class="form_group" [formGroupName]="i">
         <div class="companiontext">
-        name: <input formControlName="name">
+          <label class="font-heading">
+            Name <span id="star">*</span>
+            </label>
+        <input formControlName="name">
         <div id="errortext" *ngIf="c.get('name').hasError('required') && c.get('name').touched">This Field is required!</div>
         <div class="form-group">
           <label class="font-heading">
           Time of Arrival: <span id="star">*</span>
         </label>
-        <p id="note">
-            &rarr; Note: Food related question. Workshops start with dinner and end with breakfast.
-            If you choose an earlier arrival or a later departure, the additional food will be priced.
-        </p>
           <select id="selectfield" formControlName="from">
             <option *ngFor="let item of config.time_arrival" [value]="item.id">{{item.text}}</option>
           </select>
@@ -251,9 +250,6 @@
           <label class="font-heading">
           Time of Departure: <span id="star">*</span>
           </label>
-          <p id="note">
-              &rarr; Note: Food related question.
-          </p>
           <select id="selectfield" formControlName="to">
             <option *ngFor="let item of config.time_departure" [value]="item.id">{{item.text}}</option>
           </select>
@@ -269,8 +265,20 @@
     </div>
     </div>
 
-    <button (click)="addCompanion()">Add Companion</button>
+    <button (click)="addCompanion()" class="btn btn-success">Add Companion</button>
   </div>
+
+    <div class="form-group flex-col">
+        <label class="font-heading">
+          Preffered companion (spolubyvajuci):
+        </label>
+          <input formControlName="prefferedCompanion" class="inputfield"/>
+
+
+      <div id="errortext" *ngIf="mainFormGroup.get('foodRequests').hasError('required') && mainFormGroup.get('foodRequests').touched">
+        Special Requests is a required field!
+      </div>
+    </div>
 
   <div class="section-heading">
       Special requests
@@ -293,7 +301,7 @@
     <label class="font-heading">
     Room for your notes.
     </label>
-    <input id="inputfield" formControlName="notes">
+    <textarea formControlName="notes"></textarea>
     </div>
   </div>
 
@@ -305,12 +313,11 @@
      </p>
     </div>
 
-  <input id="subutton" type="submit" value="Submit" [disabled]="!mainFormGroup.valid">
+  <input id="subutton" type="submit" value="Submit" [disabled]="!mainFormGroup.valid" class="btn btn-success">
 
 
   </div>
 
 </form>
-<!-- just for debug purposes if every shit working as expected... fooking need some love (translate: rape) -->
-<div style="position: fixed; top: 0; left: 0">Your price: {{price}}, fullRegistration: {{hasFullRegistration}}</div>
+<div class="price-floating">Your price: {{price}}E</div>
 
