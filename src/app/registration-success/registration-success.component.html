@@ -4,7 +4,7 @@
     <h3>Thank you for your registration</h3>
     <p>Registration Details</p>
   </div>
-  <div class="reg-success-body">
+  <div class="reg-success-body" *ngIf="formData" >
     <div class="reg-success-field">
       <div class="reg-success-field-name">Name: </div>
       <div class="reg-success-field-val">{{formData.name}}</div>

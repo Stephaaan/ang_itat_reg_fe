@@ -80,15 +80,16 @@ export class RegistrationFormComponent implements OnInit {
     this.formData.banket = banketControl ? banketControl.text : '';
     this.formData.price = this.price;
     console.log(this.formData);
-    // plz put it to register observable
     // tslint:disable-next-line: max-line-length
     // formdata registration variant broken need to pass text instead of id, single bedroom checkbox broken, need to pass string instead of boolean
-    this.router.navigate(['/registration-success'], {
-      // pass somehow data: data:
-    });
+
 
     this.registration.register(this.formData).subscribe(response => {
-
+      this.router.navigate(['/registration-success'], {
+        state: {
+          data: this.formData
+        }
+      });
     });
 
   }

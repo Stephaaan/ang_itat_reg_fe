@@ -7,7 +7,7 @@ import {FormData} from '../entities/FormData.model';
   styleUrls: ['./registration-success.component.css']
 })
 export class RegistrationSuccessComponent {
-  public formData: FormData | null = {
+  public formData: FormData | null =  null /*{
     name: 'Stefan',
 surname: 'Rothmajer',
 email: 'rothmajerstefan@gmail.com',
@@ -29,7 +29,11 @@ timedeparture: '22. 9. (Sunday) - start with dinner',
 banket: '',
 price: 130,
 prefferedCompanion: '',
+  } */
+  constructor(private router: Router) {
+    if(router.getCurrentNavigation().extras.state)
+      this.formData = router.getCurrentNavigation().extras.state.data;
+    console.log(this.formData)
   }
-  constructor(private router: Router) { }
 
 }

@@ -16,6 +16,7 @@ import { ViewRegistrationsComponent } from "./administration/view-registrations/
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DisplayAccomodationPipe } from './display-accomodation.pipe';
 import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
+import { TextToDotsPipe } from './text-to-dots.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RegistrationSuccessComponent } from './registration-success/registratio
     LoginComponent,
     ViewRegistrationsComponent,
     DisplayAccomodationPipe,
-    RegistrationSuccessComponent
+    RegistrationSuccessComponent,
+    TextToDotsPipe
   ],
   imports: [
     HttpClientModule,
