@@ -1,4 +1,9 @@
 .reg-head{
   background-color: #333;
   padding: 10px 20px;
+  width: 100%;
+}
+.table {
+  overflow-x: scroll;
+  width: 100%;
 }
