@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { RegistrationsService } from './../../services/registrations.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRegistrationsComponent implements OnInit {
   formData: FormData[] | null = null;
-  constructor(private registrations: RegistrationsService, private toastr: ToastrService) { }
+  constructor(private registrations: RegistrationsService, private toastr: ToastrService, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.registrations.getAllRegistrations().subscribe(registrations => this.formData = registrations);
@@ -23,6 +25,12 @@ export class ViewRegistrationsComponent implements OnInit {
           this.toastr.success('Registration has been deleted', 'Success')}
         );
     });
+  }
+  logout() {
+    this.auth.id = "";
+    this.auth.token = "";
+    console.log("logout")
+    this.router.navigate(["/administration/login"])
   }
 
 }

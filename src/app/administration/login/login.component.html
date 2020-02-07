@@ -16,7 +16,8 @@
         <div class="invalid-feedback" [ngClass]="{visible: passValidator.invalid && passValidator.touched}">
                 Invalid Password.
               </div>
-        <button (click)="onSubmit()" [disabled]="!nameValidator.valid || !passValidator.valid" class="fadeIn fourth">Log In</button>
+              <br/>
+        <button (click)="onSubmit()" [disabled]="!nameValidator.valid || !passValidator.valid" class="btn btn-lgn fadeIn fourth">Log In</button>
 
       </form>
     </div>
